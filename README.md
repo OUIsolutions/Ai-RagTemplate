@@ -2,6 +2,8 @@
 A Rag Cli Template for C
 
 ## Local Build
+make a local build to test with the following command
 ```bash
 darwin run_blueprint build/ --mode folder local_linux_build
 ```
+
