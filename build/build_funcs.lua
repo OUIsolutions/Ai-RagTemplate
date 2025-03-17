@@ -7,6 +7,6 @@ return {
     windowsi32_build = windowsi32_build,
     windowsi64_build = windowsi64_build,
     debian_static_build = debian_static_build,
-
+    local_linux_build = local_linux_build,
 }
 end 
