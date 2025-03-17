@@ -2,13 +2,10 @@
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
-#include "imports/imports.fdefine.h"
+#include "../imports/imports.fdeclare.h"
 //silver_chain_scope_end
 
-
-int main(){
-   
-
-
-    return 0;
-}
+CArgvParseNamespace args;
+DtwNamespace dtw;
+OpenAiNamespace openai;
+BearHttpsNamespace bear;

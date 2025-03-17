@@ -5,9 +5,4 @@
 #include "../imports/imports.dep_declare.h"
 //silver_chain_scope_end
 
-
-
-#include "../../dependencies/BearHttpsClient.c"
-#include "../../dependencies/CArgvParse.c"
-#include "../../dependencies/doTheWorld.c"
-#include "../../dependencies/SDK_OpenAI.c"
+void start_namespace();

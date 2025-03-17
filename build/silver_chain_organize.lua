@@ -10,7 +10,8 @@ function silver_chain_organize()
         project_short_cut = "PROJECT_NAME",
         tags = { 
             "dep_declare",
-            "declare",
-            "define",
+            "fdeclare",
+            'globals',
+            "fdefine",
     }})
 end 
