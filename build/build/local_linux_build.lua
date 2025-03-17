@@ -28,5 +28,5 @@ function local_linux_build()
     create_objects_ar()
 
     local compilation ="gcc -o "..PROJECT_NAME.."test.out".." src/main.c libs/doTheWorld.o libs/BearHttpsClient.o libs/CArgvParse.o "
-    print("compilation: ", compilation)
+    os.execute(compilation)
 end
