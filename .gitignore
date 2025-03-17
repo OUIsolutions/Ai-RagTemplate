@@ -6,7 +6,7 @@
 *.ko
 *.obj
 *.elf
-
+.cache
 dependencies
 # Linker output
 *.ilk

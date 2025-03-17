@@ -19,6 +19,6 @@ function windowsi64_build()
             { "./src",     "/src" },
             { "./dependencies",     "/dependencies" }
         },
-        command = "x86_64-w64-mingw32-gcc --static -DDEFINE_DEPENDENCIES  /src/main.c -o /release/windows64.exe"
+        command = "x86_64-w64-mingw32-gcc --static -DDEFINE_DEPENDENCIES  /src/main.c -o /release/windows64.exe -lws2_32"
     })
 end

@@ -29,11 +29,10 @@ void colect_user_imput(char *input,int max_size){
 
 int main(int argc, char const *argv[]){
     start_namespace();
-
     OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(URL, KEY, MODEL);
-    while (true){
-      printf("%sEnter your message:%s", GREEN, RESET);
 
+    while (true){
+      printf("%sEnter your message:%s\n", GREEN, RESET);
      char input[1000] ={0};
      colect_user_imput(input,sizeof(input)-1);
      if(strcmp(input,"exit") == 0){
