@@ -1,4 +1,4 @@
-PROJECT_NAME = "SilverChain"
+PROJECT_NAME = "AiRagTemplate"
 CONTANIZER   = "podman"
 VERSION      = "0.0.9"
 LICENSE      = "MIT"

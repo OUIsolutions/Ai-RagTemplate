@@ -7,11 +7,13 @@
 *.obj
 *.elf
 
+dependencies
 # Linker output
 *.ilk
 *.map
 *.exp
-
+release
+src/imports
 # Precompiled Headers
 *.gch
 *.pch

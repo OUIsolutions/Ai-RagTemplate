@@ -7,18 +7,10 @@ function silver_chain_organize()
     silver_chain_organize_done = true
     darwin.silverchain.generate({
         src = "src",
-        project_short_cut = "Silverchain",
+        project_short_cut = "PROJECT_NAME",
         tags = { 
-            "api_dependencies",
-            "api_const",
-            "api_type",
-            "api_declare",
-            "api_define",
-            "cli_dependencies",
-            "cli_consts",
-            "cli_type",
-            "cli_globals",
-            "cli_declare",
-            "cli_define"
+            "dep_declare",
+            "declare",
+            "define",
     }})
 end 
