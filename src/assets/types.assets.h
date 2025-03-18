@@ -8,8 +8,8 @@
 
 
 typedef struct Asset{
-    const char *name;
-    unsigned char *value;
-    int len;
+    const char *path;
+    unsigned char *data;
+    int size;
 }Asset;
 
