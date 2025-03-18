@@ -25,6 +25,8 @@ function main()
         return
     end
     Install_dependencies()
+
+    if true then return end 
     local assets_recrreated  = create_assets()    
     silver_chain_organize()
     if assets_recrreated then
