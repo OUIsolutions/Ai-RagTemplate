@@ -8,3 +8,4 @@
 
 const char *START ="start";
 const char *CONFIG_MODEL = "config_model";
+const char *HELP = "help";

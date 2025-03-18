@@ -35,6 +35,9 @@ int main(int argc, char  *argv[]){
       return config_model_action();
     }
     
+    if(strcmp(action, HELP) == 0){
+      return 0;
+    }
     printf("%sError: %s%s\n", RED, "Invalid action", RESET);
     return 1;
 
