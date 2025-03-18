@@ -9,6 +9,7 @@
 .cache
 dependencies
 globals.assets.c
+.cacherag
 # Linker output
 *.ilk
 .vscode

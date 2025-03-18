@@ -1,14 +1,5 @@
 
-
-
-function create_assets()
-    
-    
-    local actual_sha = darwin.dtw.generate_sha_from_file("src/assets/globals.assets.c")
-    if actual_sha == "7be7fa1c4ebc2b051dc52c5bfe2b1314084bedc30f6f1e42c0e8ac3ed0a31d63" then
-        return false
-    end
-
+function create_assets_internal()
     darwin.dtw.remove_any("src/assets/globals.assets.c")
     local assset_contents = io.open("src/assets/globals.assets.c","a")
 
@@ -39,6 +30,22 @@ function create_assets()
     assset_contents:write("};\n")
     assset_contents:close()
 
- 
+    silver_chain_organize()
+end 
+
+
+function create_assets()
+
+    local hasher = darwin.dtw.newHasher()
+    hasher.digest_folder_by_content("assets")
+    local sha =hasher.get_value()
+    local side_effect_verifier = function()
+        return darwin.dtw.generate_sha_from_file("src/assets/globals.assets.c")
+    end
+    cache_execution({"assets",sha},create_assets_internal,side_effect_verifier)
+
+
+
+    
     return true 
 end 

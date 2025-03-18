@@ -27,14 +27,8 @@ function main()
 
     
     Install_dependencies()
-    if true then return end
-    local assets_recrreated  = create_assets()    
-    silver_chain_organize()
-    if assets_recrreated then
-        local new_assets_sha = darwin.dtw.generate_sha_from_file("src/assets/globals.assets.c")
-        print("new assets sha: ", new_assets_sha)
-    end 
-
+    create_assets()    
+  
     local build_funcs = create_build_funcs()
 
 
