@@ -46,32 +46,4 @@ int main(int argc, char  *argv[]){
     printf("%sError: %s%s\n", RED, "Invalid action", RESET);
     return 1;
 
-    /*
-
-    OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(URL, KEY, MODEL);
-
-    while (true){
-      printf("%sEnter your message:%s\n", GREEN, RESET);
-     char input[1000] ={0};
-     colect_user_imput(input,sizeof(input)-1);
-     if(strcmp(input,"exit") == 0){
-       break;
-    }     
-
-
-
-      openai.openai_interface.add_user_prompt(openAi, input);
-
-      OpenAiResponse *response = openai.openai_interface.make_question(openAi);
-      if(openai.openai_interface.error(response)){
-         printf("%sError: %s%s\n", RED, openai.openai_interface.get_error_message(response), RESET);
-         break;
-      }
-      const char *first_answer = openai.response.get_content_str(response,FIRST_CHOICE);
-      printf("%sAnswer: %s%s\n", BLUE, first_answer, RESET);
-      openai.openai_interface.add_response_to_history(openAi, response,FIRST_CHOICE);
-  
-    }
-    openai.openai_interface.free(openAi);
-    */
 }
