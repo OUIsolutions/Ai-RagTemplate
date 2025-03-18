@@ -5,7 +5,4 @@
 #include "../imports/imports.types.h"
 //silver_chain_scope_end
 
-
-const char *START ="start";
-const char *CONFIG_MODEL = "configure_model";
-const char *HELP = "help";
+const char *models_json = ".oui_models.json";

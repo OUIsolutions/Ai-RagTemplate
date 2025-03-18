@@ -2,10 +2,7 @@
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
-#include "../imports/imports.types.h"
+#include "../imports/imports.consts.h"
 //silver_chain_scope_end
 
-
-const char *START ="start";
-const char *CONFIG_MODEL = "configure_model";
-const char *HELP = "help";
+char * get_user_config_models_path();
