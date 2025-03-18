@@ -7,6 +7,17 @@
 
 
 
+void colect_user_imput(char *input,int max_size){
+  for(int i = 0; i < max_size; i++){
+    char c = getchar();
+    if(c == '\n'){
+      input[i] = '\0';
+      break;
+    }
+    input[i] = c;
+  }
+}
+
 int start_action(){
     
     ModelProps *props =collect_model_props();

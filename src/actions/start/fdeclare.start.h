@@ -6,5 +6,6 @@
 //silver_chain_scope_end
 
 
+void colect_user_imput(char *input,int max_size);
 
 int start_action();
