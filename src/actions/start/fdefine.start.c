@@ -10,6 +10,6 @@
 int start_action(){
     
 
-    char *model =args.get_flag()
+    const char *model =args.get_flag(&args_obj, model_lags, model_size,0);
     return 0;
 }

@@ -35,7 +35,9 @@ int main(int argc, char  *argv[]){
       return configure_model();
     }
     
-    if(strcmp(action, HELP) == 0){
+
+    
+    if(strcmp(action, HELP) == 0 || args.is_flags_present(&args_obj, help_flags, help_size)){
       Asset * help = get_asset("help.txt");
 
       printf("%s%s%s\n", BLUE,(char*)help->data, RESET);
