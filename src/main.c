@@ -1,14 +1,11 @@
+//silver_chain_scope_start
+//DONT MODIFY THIS COMMENT
+//this import is computationally generated
+//mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
+#include "imports/imports.fdefine.h"
+//silver_chain_scope_end
 
 
-#define FIRST_CHOICE  0
-#define URL  "https://api.openai.com/v1/chat/completions"
-#define KEY  "your_key"
-#define MODEL  "gpt-3.5-turbo"
-
-#define GREEN  "\033[0;32m"
-#define BLUE  "\033[0;34m"
-#define RED "\033[0;31m"
-#define RESET  "\033[0m"
 
 void colect_user_imput(char *input,int max_size){
   for(int i = 0; i < max_size; i++){
@@ -23,6 +20,11 @@ void colect_user_imput(char *input,int max_size){
 
 int main(int argc, char const *argv[]){
     start_namespace();
+    args_obj  = args.newCArgvParse(argc, argv);
+
+
+    /*
+
     OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(URL, KEY, MODEL);
 
     while (true){
@@ -34,7 +36,7 @@ int main(int argc, char const *argv[]){
     }     
 
 
-      
+
       openai.openai_interface.add_user_prompt(openAi, input);
 
       OpenAiResponse *response = openai.openai_interface.make_question(openAi);
@@ -48,4 +50,5 @@ int main(int argc, char const *argv[]){
   
     }
     openai.openai_interface.free(openAi);
+    */
 }
