@@ -6,4 +6,4 @@
 //silver_chain_scope_end
 
 
- CArgvParse *args_obj ;
+ CArgvParse args_obj ;

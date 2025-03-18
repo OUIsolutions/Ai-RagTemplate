@@ -10,6 +10,7 @@
 dependencies
 # Linker output
 *.ilk
+.vscode
 *.map
 *.exp
 release

@@ -11,6 +11,8 @@ function silver_chain_organize()
         tags = { 
             "dep_declare",
             "macros",
+            "types",
+            "consts",
             "fdeclare",
             'globals',
             "fdefine",

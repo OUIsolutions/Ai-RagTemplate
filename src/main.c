@@ -18,10 +18,25 @@ void colect_user_imput(char *input,int max_size){
   }
 }
 
-int main(int argc, char const *argv[]){
+int main(int argc, char  *argv[]){
     start_namespace();
     args_obj  = args.newCArgvParse(argc, argv);
+    
+    const char *action = args.get_arg(&args_obj, 1);
 
+    if(action == NULL){
+      printf("%sError: %s%s\n", RED, "No action provided", RESET);
+      return 1;
+    }
+    if(strcmp(action, START) == 0){
+      return start_action();
+   }
+    if(strcmp(action, CONFIG_MODEL) == 0){
+      return config_model_action();
+    }
+    
+    printf("%sError: %s%s\n", RED, "Invalid action", RESET);
+    return 1;
 
     /*
 
