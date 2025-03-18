@@ -1,3 +1,0 @@
-
-
-void configure_model();

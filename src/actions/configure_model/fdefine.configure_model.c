@@ -7,7 +7,7 @@
 
 
 
-int start_action(){
-    printf("start\n");
+int configure_model(){
+    printf("cconfiguremodel\n");
     return 0;
 }

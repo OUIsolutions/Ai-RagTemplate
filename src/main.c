@@ -32,7 +32,7 @@ int main(int argc, char  *argv[]){
       return start_action();
    }
     if(strcmp(action, CONFIG_MODEL) == 0){
-      return config_model_action();
+      return configure_model();
     }
     
     if(strcmp(action, HELP) == 0){

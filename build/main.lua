@@ -25,7 +25,7 @@ function main()
         return
     end
     Install_dependencies()
-    
+    create_assets()    
     local build_funcs = create_build_funcs()
 
 

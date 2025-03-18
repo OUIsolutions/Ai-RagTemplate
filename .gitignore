@@ -8,6 +8,7 @@
 *.elf
 .cache
 dependencies
+globals.assets.c
 # Linker output
 *.ilk
 .vscode
