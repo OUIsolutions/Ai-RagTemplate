@@ -13,6 +13,7 @@ Asset *get_asset(const char *path){
             return &assets[i];
         }
     }
+    return NULL;
 }
 
 DtwStringArray * list_assets_recursively(const char *path){

@@ -36,6 +36,9 @@ int main(int argc, char  *argv[]){
     }
     
     if(strcmp(action, HELP) == 0){
+      Asset * help = get_asset("help.txt");
+
+      printf("%s%s%s\n", BLUE,(char*)help->data, RESET);
       return 0;
     }
     printf("%sError: %s%s\n", RED, "Invalid action", RESET);
