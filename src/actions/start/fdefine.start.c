@@ -8,6 +8,8 @@
 
 
 int start_action(){
-    printf("start\n");
+    
+
+    char *model =args.get_flag()
     return 0;
 }
