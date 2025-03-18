@@ -28,7 +28,12 @@ function create_assets_internal()
         assset_contents:write("},\n")
     end 
     assset_contents:write("};\n")
+
+
+    assset_contents:write("int assets_size = "..size..";\n")
     assset_contents:close()
+
+
 
     silver_chain_organize()
 end 
