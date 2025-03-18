@@ -31,4 +31,5 @@ function create_assets()
         assset_contents:write("},\n")
     end 
     assset_contents:write("};\n")
+    assset_contents:close()
 end 
