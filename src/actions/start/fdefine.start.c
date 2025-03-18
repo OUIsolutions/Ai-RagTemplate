@@ -24,8 +24,7 @@ int start_action(){
     if(!props){
         return 1;
     }
-
-   OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(props->url, props->key, props->url);
+   OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(props->url, props->key, props->model);
 
     while (true){
         printf("%sEnter your message:%s\n", GREEN, RESET);
