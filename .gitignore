@@ -8,6 +8,7 @@
 *.elf
 .cache
 dependencies
+AiRagTemplate
 globals.assets.c
 .cacherag
 # Linker output
