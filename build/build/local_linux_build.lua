@@ -27,7 +27,10 @@ function local_linux_build()
     silver_chain_organize()
     create_objects_ar()
 
-    local compilation ="gcc -o "..PROJECT_NAME.."test.out".." src/main.c libs/doTheWorld.o libs/BearHttpsClient.o libs/CArgvParse.o "
+    local compilation ="gcc -o test".." src/main.c libs/doTheWorld.o libs/BearHttpsClient.o libs/CArgvParse.o "
     print("compilation: ", compilation)
     os.execute(compilation)
+    print("saving to /usr/local/bin/"..PROJECT_NAME)
+    darwin.dtw.move_any_overwriting("test","/usr/local/bin/"..PROJECT_NAME)
+
 end
