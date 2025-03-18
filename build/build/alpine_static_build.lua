@@ -5,7 +5,6 @@ function alpine_static_build()
         return
     end
     alpine_static_build_done = true
-    silver_chain_organize()
 
     os.execute("mkdir -p release")
 

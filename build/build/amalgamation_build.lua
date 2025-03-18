@@ -4,7 +4,6 @@ function amalgamation_build()
         return
     end
     alreay_amalamated_done = true
-    silver_chain_organize()
 
 
     local runtime = darwin.camalgamator.generate_amalgamation("src/main.c")
