@@ -6,3 +6,9 @@
 //silver_chain_scope_end
 
 char * get_user_config_models_path();
+
+
+
+
+///ensure that the schema of json its correct
+cJSON * get_parsed_json_testing_schema(const char *json);
