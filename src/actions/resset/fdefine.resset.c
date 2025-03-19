@@ -2,11 +2,12 @@
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
-#include "../imports/imports.types.h"
+#include "../../imports/imports.globals.h"
 //silver_chain_scope_end
 
 
-const char *START ="start";
-const char *CONFIG_MODEL = "configure_model";
-const char *HELP = "help";
-const char *RESSET = "resset";
+int resset(){
+    char *models_path = get_user_config_models_path();
+    dtw.remove_any(models_path);
+    return 0;
+}
