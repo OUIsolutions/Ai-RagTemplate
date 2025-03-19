@@ -13,7 +13,13 @@ char * get_user_config_models_path(){
     return dtw.concat_path(homedir,models_json);
 }
 
-
+cJSON *create_model_obj(const char *model, const char *key, const char *url){
+    cJSON *model_obj = cJSON_CreateObject();
+    cJSON_AddStringToObject(model_obj, "model", model);
+    cJSON_AddStringToObject(model_obj, "key", key);
+    cJSON_AddStringToObject(model_obj, "url", url);
+    return model_obj;
+}
 cJSON * get_parsed_json(const char *json){
     cJSON *parsed = cJSON_Parse(json);
     if(parsed == NULL){

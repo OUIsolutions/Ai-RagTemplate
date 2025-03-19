@@ -30,14 +30,13 @@ int configure_model(){
     char *model_json_content = dtw.load_string_file_content(models_path);
     if(model_json_content == NULL){
         cJSON *empty_array = cJSON_CreateArray();
-        cJSON *model_obj = cJSON_CreateObject();
-        cJSON_AddItemToObject(model_obj, model, empty_array);
-        cJSON_AddStringToObject(model_obj, "key", key);
-        cJSON_AddStringToObject(model_obj, "url", url);
-        cJSON_AddStringToObject(model_obj, "model", model);
-        char *dumped = cJSON_Print(model_obj);
+        cJSON *model_obj = create_model_obj(model, key, url);
+        cJSON_AddItemToArray(empty_array, model_obj);
+
+
+        char *dumped = cJSON_Print(empty_array);
         dtw.write_string_file_content(models_path, dumped);
-        cJSON_Delete(model_obj);
+        cJSON_Delete(empty_array);
         free(dumped);
         return 0;
     }
@@ -51,24 +50,25 @@ int configure_model(){
         cJSON *obj = cJSON_GetArrayItem(parsed, i);
         cJSON *model_obj = cJSON_GetObjectItem(obj, "model");
         if(strcmp(model_obj->valuestring, model) == 0){
-            //update the model
-            cJSON_ReplaceItemInObject(obj, "key", cJSON_CreateString(key));
-            cJSON_ReplaceItemInObject(obj, "url", cJSON_CreateString(url));
+            //delete the index
+            cJSON_DeleteItemFromArray(parsed, i);
+            cJSON *new_model_obj = create_model_obj(model, key, url);
+            cJSON_AddItemToArray(parsed, new_model_obj);
             char *dumped = cJSON_Print(parsed);
             dtw.write_string_file_content(models_path, dumped);
             cJSON_Delete(parsed);
             free(dumped);
+
             return 0;
         }
     }
 
-    cJSON *model_obj = cJSON_CreateObject();
+    cJSON *model_obj = create_model_obj(model, key, url);
     cJSON_AddItemToArray(parsed, model_obj);
-    cJSON_AddStringToObject(model_obj, "model", model);
-    cJSON_AddStringToObject(model_obj, "key", key);
-    cJSON_AddStringToObject(model_obj, "url", url);
     char *dumped = cJSON_Print(parsed);
-    
+    dtw.write_string_file_content(models_path, dumped);
+    cJSON_Delete(parsed);
+    free(dumped);
     
     return 0;
 }
