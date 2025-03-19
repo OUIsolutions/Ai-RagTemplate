@@ -61,5 +61,6 @@ cJSON * get_parsed_json(const char *json){
             return NULL;
         }
     }
+    return parsed;
 
 }
