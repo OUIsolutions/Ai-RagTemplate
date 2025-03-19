@@ -27,6 +27,21 @@ int configure_model(){
         return 1;
     }
     char *models_path = get_user_config_models_path();
-    printf("models_path: %s\n", models_path);
+    char *model_json_content = dtw.load_string_file_content(models_path);
+    if(model_json_content == NULL){
+        cJSON *empty_array = cJSON_CreateArray();
+        cJSON *model_obj = cJSON_CreateObject();
+        cJSON_AddItemToObject(model_obj, model, empty_array);
+        cJSON_AddStringToObject(model_obj, "key", key);
+        cJSON_AddStringToObject(model_obj, "url", url);
+        cJSON_AddStringToObject(model_obj, "model", model);
+        char *dumped = cJSON_Print(model_obj);
+        dtw.write_string_file_content(models_path, dumped);
+        cJSON_Delete(model_obj);
+        free(dumped);
+        return 0;
+    }
+    
+    
     return 0;
 }
