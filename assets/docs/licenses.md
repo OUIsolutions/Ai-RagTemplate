@@ -28,7 +28,7 @@ BearSSL is a small, fast, portable, and embeddable implementation of the SSL/TLS
   SOFTWARE.
  
 
-### [CJSON](https://github.com/DaveGamble/cJSON)
+### [cJSON](https://github.com/DaveGamble/cJSON)
 
 CJSON is a lightweight JSON parser written in C. It is designed to be easy to use, fast, and portable. The library provides functions for parsing JSON data, creating JSON objects, and manipulating JSON objects. It is suitable for use in embedded systems and other resource-constrained environments.
 
@@ -66,8 +66,7 @@ The spirit of the Lua license is that you are free to use Lua for any purpose at
 The Lua language is entirely designed, implemented, and maintained by a team at PUC-Rio in Brazil. The implementation is not derived from licensed software.
 
 
-### sha-256 <br>
-**sha-256**: from https://github.com/amosnier/sha-2 <br>
+### [sha-2](https://github.com/amosnier/sha-2)
 
 Zero Clause BSD License
 © 2021 Alain Mosnier
