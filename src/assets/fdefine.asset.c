@@ -20,9 +20,15 @@ DtwStringArray * list_assets_recursively(const char *path){
     DtwStringArray *list = dtw.string_array.newStringArray();
     for(int i = 0; i< assets_size;i++){
         
-        if (dtw_starts_with(assets[i].path, path)){
+        if(!path){
             dtw.string_array.append(list, assets[i].path);
         }
+        if(path){
+            if (dtw_starts_with(assets[i].path, path)){
+                dtw.string_array.append(list, assets[i].path);
+            }
+        }
+
     }
     return list;
 }
