@@ -92,7 +92,14 @@ int start_action(){
         }
         printf("%sAnswer: %s%s\n", BLUE, first_answer, RESET);
         openai.openai_interface.add_response_to_history(openAi, response,0);
-  
+
+       char *messages = cJSON_Print(openAi->messages);
+        long agora = time(NULL);
+        char caminho[100] ={0};
+        sprintf(caminho,"history/%ld.json",agora);
+        dtw.write_string_file_content(caminho, messages);
+        free(messages);
+
     }  
 
 
