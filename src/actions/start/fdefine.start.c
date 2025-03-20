@@ -24,30 +24,34 @@ int start_action(){
     if(!props){
         return 1;
     }
-   OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(props->url, props->key, props->model);
+    OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(props->url, props->key, props->model);
+    Asset * main_system_rules = get_asset("system_instructions.md");
+
+    openai.openai_interface.add_system_prompt(openAi,(char*)main_system_rules->data);
+
 
     while (true){
         printf("%sEnter your message:%s\n", GREEN, RESET);
         char input[1000] ={0};
         colect_user_imput(input,sizeof(input)-1);
         if(strcmp(input,"exit") == 0){
-        break;
+            break;
         }     
 
-      openai.openai_interface.add_user_prompt(openAi, input);
+        openai.openai_interface.add_user_prompt(openAi, input);
 
-      OpenAiResponse *response = openai.openai_interface.make_question(openAi);
-      if(openai.openai_interface.error(response)){
-         printf("%sError: %s%s\n", RED, openai.openai_interface.get_error_message(response), RESET);
-         break;
-      }
-      const char *first_answer = openai.response.get_content_str(response,0);
-      if(first_answer == NULL){
-        printf("%sError: %s%s\n", RED, "No answer found", RESET);
-        break;
-      }
-      printf("%sAnswer: %s%s\n", BLUE, first_answer, RESET);
-      openai.openai_interface.add_response_to_history(openAi, response,0);
+        OpenAiResponse *response = openai.openai_interface.make_question(openAi);
+        if(openai.openai_interface.error(response)){
+          printf("%sError: %s%s\n", RED, openai.openai_interface.get_error_message(response), RESET);
+          break;
+        }
+        const char *first_answer = openai.response.get_content_str(response,0);
+        if(first_answer == NULL){
+          printf("%sError: %s%s\n", RED, "No answer found", RESET);
+          break;
+        }
+        printf("%sAnswer: %s%s\n", BLUE, first_answer, RESET);
+        openai.openai_interface.add_response_to_history(openAi, response,0);
   
     }
 
