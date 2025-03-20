@@ -1,5 +1,7 @@
 # Assets Embedded Variables Documentation
 
+Each asset in this documentation represents a file located in the `assets/*` directory. These assets are embedded within the project for efficient management and retrieval.
+
 ## Asset Structure
 
 The `Asset` structure is defined as follows:
