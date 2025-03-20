@@ -28,6 +28,10 @@ int list_model(){
         cJSON *url = cJSON_GetObjectItem(obj, "url");
         printf("%sModel: %s%s\n", BLUE, model->valuestring, RESET);
         printf("%sUrl: %s%s\n", BLUE, url->valuestring, RESET);
+        cJSON *is_default = cJSON_GetObjectItem(obj, "default");
+        if(is_default != NULL){
+            printf("%sDefault: %s%s\n", BLUE, is_default->valueint == 1 ? "true" : "false", RESET);
+        }
         printf("\n");
     }
 

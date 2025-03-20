@@ -8,6 +8,7 @@
 char * get_user_config_models_path(){
     const char *homedir =  getenv("HOME");
     if(homedir == NULL){
+        printf("%sError: No home directory found%s\n", RED, RESET);
         return NULL;
     }
     return dtw.concat_path(homedir,models_json);

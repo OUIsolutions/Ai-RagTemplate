@@ -34,7 +34,9 @@ int main(int argc, char  *argv[]){
     if(strcmp(action, REMOVE_MODEL) == 0){
       return remove_model();
     }
-
+    if(strcmp(action, SET_MODEL_AS_DEFAULT) == 0){
+      return set_model_as_default();
+    }
     if(strcmp(action, HELP) == 0 || args.is_flags_present(&args_obj, help_flags, help_size)){
       Asset * help = get_asset("help.txt");
 
