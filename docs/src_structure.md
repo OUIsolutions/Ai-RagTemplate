@@ -64,3 +64,6 @@ src
     └── fdefine.dependencies.c
 
 The Parts explanation:
+ - Action : The actions folder contains the functions that are responsible for the actions that the user can do with the project. like (start, list_models, remove_model, etc)
+- Ai Functions : The ai_functions folder contains functions callbacks that the AI can call to interact with the project. 
+  check [OpenAiSdk](https://www.facebook.com/groups/264059710385123?locale=pt_BR)
