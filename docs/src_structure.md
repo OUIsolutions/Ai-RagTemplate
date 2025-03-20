@@ -1,6 +1,6 @@
 
 The src folder its responsible for the source code of the project, the src folder is:
-
+```txt
 src
 ├── actions
 │   ├── configure_model
@@ -62,6 +62,7 @@ src
 └── src_dependencies
     ├── dep_declare.dependencies.h
     └── fdefine.dependencies.c
+```
 
 The Parts explanation:
  - Action : The actions folder contains the functions that are responsible for the actions that the user can do with the project. like (start, list_models, remove_model, etc)
