@@ -7,3 +7,4 @@
 - if the user ask you to change a file list files before to find the file to change.
 - you start at the root path of the project.
 - always read the content of the file before to change it.
+- use write_file function to write the solution in the file.
