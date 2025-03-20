@@ -1,27 +1,27 @@
 
 
 function create_objects_ar()
-    local hasher = darwin.dtw.newHasher()
 
-    hasher.digest_folder_by_content("libs")
-    local TARGET_HASH = "e134d94f7ca01440c8ae04496a35db235050a6ac403c6bbb9f4da3fb43b43bf5"
-    if hasher.get_value() == TARGET_HASH then
-     -- return
-    end
-    darwin.dtw.remove_any("libs")
     os.execute("mkdir -p libs")
-    local comands = {
-        "gcc -c dependencies/doTheWorld.c -o libs/doTheWorld.o",
-        "gcc -c dependencies/BearHttpsClient.c -o libs/BearHttpsClient.o -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE",
-        "gcc -c dependencies/CArgvParse.c -o libs/CArgvParse.o",
+    local itens = {
+      {command="gcc -c dependencies/doTheWorld.c -o libs/doTheWorld.o",path="dependencies/doTheWorld.c"},
+    {command="gcc -c dependencies/BearHttpsClient.c -o libs/BearHttpsClient.o -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE",path="dependencies/BearHttpsClient.c"},
+    {command="gcc -c dependencies/CArgvParse.c -o libs/CArgvParse.o",path="dependencies/CArgvParse.c"},
     }
-    for _, command in ipairs(comands) do
-        print("command: ", command)
-        os.execute(command)
+
+    for _, item in ipairs(itens) do
+        
+        local executor = function()
+            os.execute(item.command)
+        end
+        local side_effect_verifier = function()
+            return darwin.dtw.generate_sha_from_file(item.path)
+        end
+
+        local sha =darwin.dtw.generate_sha_from_file(item.path)
+        cache_execution({ "create .o object", item.path, item.command ,sha}, executor, side_effect_verifier)
     end
-    local new_hasher = darwin.dtw.newHasher()
-    new_hasher.digest_folder_by_content("libs")
-    print("new hasher is: ", new_hasher.get_value())
+
 
 end 
 function local_linux_build()
