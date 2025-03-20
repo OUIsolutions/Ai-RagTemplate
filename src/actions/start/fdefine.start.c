@@ -70,15 +70,22 @@ int start_action(){
     configure_read_asset_callbacks(openAi);
 
 
-    while (true){
-        printf("%sEnter your message:%s\n", GREEN, RESET);
-        char input[1000] ={0};
-        colect_user_imput(input,sizeof(input)-1);
-        if(strcmp(input,"exit") == 0){
-            break;
-        }     
+    size_t size_buffer = REG_BUFFER_SIZE - 1;
+    char *buffer = BearsslHttps_allocate(REG_BUFFER_SIZE);
+    short response_buffer_input = REG_CHAT_RESPONSE_BUFFER_OK;
 
-        openai.openai_interface.add_user_prompt(openAi, input);
+    while (true){
+
+        response_buffer_input = Reg_init_chat(buffer, size_buffer, " Your message > ");
+        if(response_buffer_input != REG_CHAT_RESPONSE_BUFFER_OK){
+            const char *message = Reg_chat_returned_handling(response_buffer_input);
+            if(message){
+                printf("\n\tErro:. %s\n", message);
+            }
+            break;
+        }
+
+        openai.openai_interface.add_user_prompt(openAi, buffer);
 
         OpenAiResponse *response =  OpenAiInterface_make_question_finish_reason_treated(openAi);
         if(openai.openai_interface.error(response)){
@@ -90,7 +97,7 @@ int start_action(){
           printf("%sError: %s%s\n", RED, "No answer found", RESET);
           break;
         }
-        printf("%sAnswer: %s%s\n", BLUE, first_answer, RESET);
+        printf("%s < Response: %s%s\n", BLUE, first_answer, RESET);
         openai.openai_interface.add_response_to_history(openAi, response,0);
 
     }  
