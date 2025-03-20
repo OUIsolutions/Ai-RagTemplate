@@ -6,7 +6,7 @@ function create_objects_ar()
     hasher.digest_folder_by_content("libs")
     local TARGET_HASH = "e134d94f7ca01440c8ae04496a35db235050a6ac403c6bbb9f4da3fb43b43bf5"
     if hasher.get_value() == TARGET_HASH then
-      --  return
+      return
     end
     darwin.dtw.remove_any("libs")
     os.execute("mkdir -p libs")
