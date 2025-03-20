@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-
+keys.txt
 # Object files
 *.o
 *.ko
