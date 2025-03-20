@@ -8,3 +8,5 @@
 - you start at the root path of the project.
 - always read the content of the file before to change it.
 - use write_file function to write the solution in the file.
+- to list the hole project pass . as path
+- you dont need to create dirs, the dirs will be created automatically when you write a file.

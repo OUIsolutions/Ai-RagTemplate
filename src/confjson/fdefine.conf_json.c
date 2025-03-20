@@ -6,12 +6,15 @@
 //silver_chain_scope_end
 
 char * get_user_config_models_path(){
-    const char *homedir =  getenv("HOME");
+    const char *homedir = getenv("HOME");
+    if(homedir == NULL) {
+        homedir = getenv("USERPROFILE"); // Check also USERPROFILE for Windows
+    }
     if(homedir == NULL){
         printf("%sError: No home directory found%s\n", RED, RESET);
         return NULL;
     }
-    return dtw.concat_path(homedir,models_json);
+    return dtw.concat_path(homedir, models_json);
 }
 
 cJSON *create_model_obj(const char *model, const char *key, const char *url){
@@ -21,6 +24,7 @@ cJSON *create_model_obj(const char *model, const char *key, const char *url){
     cJSON_AddStringToObject(model_obj, "url", url);
     return model_obj;
 }
+
 cJSON * get_parsed_json(const char *json){
     cJSON *parsed = cJSON_Parse(json);
     if(parsed == NULL){
@@ -40,7 +44,7 @@ cJSON * get_parsed_json(const char *json){
             cJSON_Delete(parsed);
             return NULL;
         }
-      
+
         cJSON *model = cJSON_GetObjectItem(obj, "model");
         if(!cJSON_IsString(model)){
             printf("%sError: [%d]['model'] model its not a string%s\n", RED,i, RESET);

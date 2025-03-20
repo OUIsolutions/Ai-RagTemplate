@@ -59,6 +59,7 @@ char *agent_list_recursively(cJSON *args, void *pointer){
     dtw.string_array.free(all_itens);
     char *all_intens_string = cJSON_PrintUnformatted(all_intens_cjson);
     cJSON_Delete(all_intens_cjson);
+    printf("%s AI LISTED: %s\n",YELLOW, path->valuestring, RESET);
     return all_intens_string;    
 }
 
@@ -75,6 +76,7 @@ char *agent_read_file(cJSON *args, void *pointer){
         return NULL;
     }
     char *content =dtw.load_string_file_content(path->valuestring);
+    printf("%s AI READ: %s\n",YELLOW, path->valuestring, RESET);
     return content;
 }
 
@@ -92,6 +94,7 @@ char *agent_write_file(cJSON *args, void *pointer){
         return NULL;
     }
     dtw.write_string_file_content(path->valuestring, content->valuestring);
+    printf("%s AI WROTE: %s\n",YELLOW, path->valuestring, RESET);
     return NULL;
 }
 
