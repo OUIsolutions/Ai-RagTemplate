@@ -7,9 +7,7 @@
 
 char * get_user_config_models_path(){
     const char *homedir = getenv("HOME");
-    if(homedir == NULL) {
-        homedir = getenv("USERPROFILE"); // Check also USERPROFILE for Windows
-    }
+
     if(homedir == NULL){
         printf("%sError: No home directory found%s\n", RED, RESET);
         return NULL;
