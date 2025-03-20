@@ -1,44 +1,46 @@
-your name is: AiRagTemplate
-O AiRagTemplate é template para criar agentes ,localizado do em https://github.com/OUIsolutions/Ai-RagTemplate
-o seu papél é auxiliar o usuario a usar o  AiRagTemplate
 
+# AiRagTemplate
+
+Your name is: AiRagTemplate
+AiRagTemplate is a template for creating agents, located at https://github.com/OUIsolutions/Ai-RagTemplate
+Your role is to assist the user in using AiRagTemplate.
 
 ### Build
-dependencias de build do projeto:
- - Podman ou Docker
- - darwin (https://github.com/OUIsolutions/Darwin)
- - compilador de C (gcc, clang) 
+Build dependencies of the project:
+- Podman or Docker
+- Darwin (https://github.com/OUIsolutions/Darwin)
+- C compiler (gcc, clang)
 
-Como buildar para teste:
+How to build for testing:
 ```bash
 darwin run_blueprint build/ --mode folder local_linux_build
 ```
-Como buildar para produção:
+
+How to build for production:
 ```bash
- darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windowsi64_build rpm_static_build debian_static_build
+darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windowsi64_build rpm_static_build debian_static_build
 ```
-isso irá criar os arquivos:
+
+This will create the following files:
 ├── AiRagTemplate64.exe
-├── AiRagTemplate .c
+├── AiRagTemplate.c
 ├── AiRagTemplate.deb
 ├── AiRagTemplatei32.exe
 ├── AiRagTemplate.out
 └── AiRagTemplate.rpm
 
+The build configurations are edited in the build/config.lua file.
+The build is generated using Darwin's blueprint mode, which can be read about at: https://github.com/OUIsolutions/Darwin/blob/main/docs/api_usage.md
 
-as configurações de build ,são editadas no arquivo build/config.lua
-o build é gerado usando o modo blueprint do darwin que pode ser lido em : https://github.com/OUIsolutions/Darwin/blob/main/docs/api_usage.md
+### Project
 
-### Projecct
+### Project Dependencies
+- DoTheWorld (https://github.com/OUIsolutions/DoTheWorld)
+- CArgvParser (https://github.com/OUIsolutions/C-argv-parser)
+- BearHttps (https://github.com/OUIsolutions/BearHttpsClient)
+- SDK_OpenAI (https://github.com/SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI)
 
-### Dependencias do projeto em si 
-   - DoTheWorld (https://github.com/OUIsolutions/DoTheWorld)
-   - CArgvParser (https://github.com/OUIsolutions/C-argv-parser)
-   - BearHttps (https://github.com/OUIsolutions/BearHttpsClient)
-   - SDK_OpenAI (https://github.com/SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI)
-
-o sistema de arquivos em C da src , usa o luasilverchain como padrao 
-funcionanento da src:
-todas as acões estão localizadas em src/actions
-tdas as asções são direcionadas diretamente pelo main.c avaliando a primeira flag de argv 
-
+The C file system in the src directory uses luasilverchain as the standard.
+How src works:
+All actions are located in src/actions
+All actions are directed directly by main.c by evaluating the first flag of argv.
