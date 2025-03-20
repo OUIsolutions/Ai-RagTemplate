@@ -13,6 +13,9 @@ int remove_model(){
         return 1;
     }
     char *models_path = get_user_config_models_path();
+    if(models_path == NULL){
+        return 1;
+    }
     char *model_json_content = dtw.load_string_file_content(models_path);
     if(model_json_content == NULL){
         printf("%sError: No models found%s\n", RED, RESET);

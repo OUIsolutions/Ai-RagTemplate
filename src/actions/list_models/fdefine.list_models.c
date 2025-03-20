@@ -7,8 +7,11 @@
 
 int list_model(){
 
-    char *path = get_user_config_models_path();
-    char *content = dtw.load_string_file_content(path);
+    char *models_path = get_user_config_models_path();
+    if(models_path == NULL){
+        return 1;
+    }
+    char *content = dtw.load_string_file_content(models_path);
     if(content == NULL){
         printf("%sError: No models found%s\n", RED, RESET);
         return 1;
