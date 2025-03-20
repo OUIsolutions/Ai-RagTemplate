@@ -7,4 +7,9 @@
 - verify if its to test a container 
   - if its to test a countainer , creates and launch that container and end build
 
-- create the assets embed vars
+- create the assets embed vars [Assets docs](/assets/docs/assets_embed_vars.md)
+- iterate over all the functions into [build_funcs.lua](/build/build_funcs.lua)
+  that are located in [builds](/build/build/) folder and execute them
+
+
+### Build Functions
