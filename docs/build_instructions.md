@@ -28,6 +28,8 @@ if you want to make a full build to all platforms you can use the following comm
  darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windowsi64_build rpm_static_build debian_static_build
 ```
 
+
+
 Output files:
 - release/AiRagTemplate64.exe
 - release/AiRagTemplate.c
