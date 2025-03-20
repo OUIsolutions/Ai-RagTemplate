@@ -1,35 +1,33 @@
-# Assets Embed Variables
-
-Assets in the context of this project represent individual files within the `/assets` directory. These files are listed recursively to capture all assets present in the directory. The assets are then saved and managed as part of the build process by the `create_assets.lua` script.
+# Assets Embedded Variables Documentation
 
 ## Asset Structure
 
-The `Asset` struct defined in `types.assets.h` encapsulates the properties of an asset file:
-- **path**: The file path of the asset.
-- **data**: Pointer to the content of the asset.
-- **size**: Size of the asset's content.
+The `Asset` structure is defined as follows:
 
-## Functions
-
-### `get_asset`
-
-Retrieve an asset by providing its file path.
 ```c
-Asset *get_asset(const char *path);
+typedef struct Asset{
+    const char *path;
+    unsigned char *data;
+    int size;
+}Asset;
 ```
 
-### `list_assets_recursively`
+- **path**: A constant string representing the path to the asset.
+- **data**: A pointer to the asset's data stored as unsigned characters.
+- **size**: An integer representing the size of the asset's data.
 
-List all assets recursively within a specified directory path.
-```c
-DtwStringArray *list_assets_recursively(const char *path);
-```
+## Asset Management Functions
 
-### `list_assets`
+### `Asset *get_asset(const char *path);`
 
-List all assets within a given directory path.
-```c
-DtwStringArray *list_assets(const char *path);
-```
+This function retrieves an asset by its path. It returns a pointer to an `Asset` structure.
 
-For further details on the implementation and usage of assets in the project, refer to the corresponding `fdeclare.assets.h` and `types.assets.h` files.
+### `DtwStringArray *list_assets_recursively(const char *path);`
+
+This function lists all assets recursively from a given path. It returns a `DtwStringArray` containing the paths of the assets.
+
+### `DtwStringArray *list_assets(const char *path);`
+
+This function lists assets from a given path. It returns a `DtwStringArray` containing the paths of the assets.
+
+These functions are part of the asset management system, allowing for efficient handling and retrieval of embedded assets within the project.
