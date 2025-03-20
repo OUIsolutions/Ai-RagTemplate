@@ -6,7 +6,11 @@
 //silver_chain_scope_end
 
 char * get_user_config_models_path(){
+    #ifdef __linux__
     const char *homedir = getenv("HOME");
+    #elif _WIN32
+    const char *homedir = getenv("USERPROFILE");
+    #endif
 
     if(homedir == NULL){
         printf("%sError: No home directory found%s\n", RED, RESET);
