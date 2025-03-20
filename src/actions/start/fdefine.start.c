@@ -18,42 +18,6 @@ void colect_user_imput(char *input,int max_size){
   }
 }
 
-//ai can read the assets too
-char *get_ai_chosen_asset(cJSON *args, void *pointer){
-
-  cJSON *asset = cJSON_GetObjectItem(args, "doc");
-  if(!cJSON_IsString(asset)){
-        return NULL;
-  }
-
-  Asset *current_aset = get_asset(asset->valuestring);
-
-  if(!current_aset){
-    return NULL;
-  }
-
-  return (char*)current_aset->data;
-}
-void configure_read_asset_callbacks(OpenAiInterface *openAi){
-    cJSON *assets_json = cJSON_CreateArray();
-    DtwStringArray *all_assets = list_assets_recursively(NULL);
-    for(int i = 0; i < all_assets->size; i++){
-        cJSON_AddItemToArray(assets_json, cJSON_CreateString(all_assets->strings[i]));
-    }
-    char *assets_printed = cJSON_PrintUnformatted(assets_json);
-    char *message = malloc(strlen(assets_printed) + 100);
-    sprintf(message, "The following docs are available: %s", assets_printed);
-    
-    openai.openai_interface.add_system_prompt(openAi,message);
-    OpenAiCallback *callback = new_OpenAiCallback(get_ai_chosen_asset, NULL, "get_doc", "get a  do to help users in question", false);
-    OpenAiInterface_add_parameters_in_callback(callback, "doc", "Pass the name of doc you want to read.", "string", true);
-    OpenAiInterface_add_callback_function_by_tools(openAi, callback);
-
-
-    dtw.string_array.free(all_assets);
-    free(assets_printed);
-    cJSON_Delete(assets_json);
-}
 
 
 int start_action(){
@@ -68,6 +32,8 @@ int start_action(){
     Asset * main_system_rules = get_asset("system_instructions.md");
     openai.openai_interface.add_system_prompt(openAi,(char*)main_system_rules->data);
     configure_read_asset_callbacks(openAi);
+    configure_list_recursively_callbacks(openAi);
+    configure_write_file_callbacks(openAi);
 
 
     size_t size_buffer = REG_BUFFER_SIZE - 1;
@@ -97,7 +63,7 @@ int start_action(){
           printf("%sError: %s%s\n", RED, "No answer found", RESET);
           break;
         }
-        printf("%s < Response: %s%s\n", BLUE, first_answer, RESET);
+        printf("%s < Response: %s%s\n", GREEN, first_answer, RESET);
         openai.openai_interface.add_response_to_history(openAi, response,0);
 
     }  
