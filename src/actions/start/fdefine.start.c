@@ -70,7 +70,7 @@ int start_action(){
     }  
 
 
-
+    printf("data collected: %s\n", cJSON_Print(openAi->messages));
     openai.openai_interface.free(openAi);
     freeModelProps(props);
 

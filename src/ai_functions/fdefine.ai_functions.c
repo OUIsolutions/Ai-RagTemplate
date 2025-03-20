@@ -54,7 +54,11 @@ char *agent_list_recursively(cJSON *args, void *pointer){
     DtwStringArray *all_itens = dtw.list_files_recursively(path->valuestring,true);
     cJSON *all_intens_cjson = cJSON_CreateArray();
     for(int i = 0; i < all_itens->size; i++){
-        cJSON_AddItemToArray(all_intens_cjson, cJSON_CreateString(all_itens->strings[i]));
+
+        char *current_file = all_itens->strings[i]; 
+        if(!dtw_starts_with(current_file,"./." )){
+            cJSON_AddItemToArray(all_intens_cjson, cJSON_CreateString(current_file));
+        }
     }
     dtw.string_array.free(all_itens);
     char *all_intens_string = cJSON_PrintUnformatted(all_intens_cjson);
