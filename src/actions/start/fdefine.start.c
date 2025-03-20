@@ -55,6 +55,7 @@ int start_action(){
     char *message = malloc(strlen(assets_printed) + 100);
     sprintf(message, "The following docs are available: %s", assets_printed);
     
+    openai.openai_interface.add_system_prompt(openAi,message);
     OpenAiCallback *callback = new_OpenAiCallback(get_ai_chosen_asset, NULL, "get_doc", "get a  do to help users in question", false);
 
     while (true){
