@@ -95,7 +95,7 @@ char *agent_write_file(cJSON *args, void *pointer){
     }
     dtw.write_string_file_content(path->valuestring, content->valuestring);
     printf("%s AI WROTE: %s\n",YELLOW, path->valuestring, RESET);
-    return NULL;
+    return "file wrotted";
 }
 
 void configure_write_file_callbacks(OpenAiInterface *openAi){
