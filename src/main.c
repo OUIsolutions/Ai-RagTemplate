@@ -43,6 +43,7 @@ int main(int argc, char  *argv[]){
       printf("%s%s%s\n", BLUE,(char*)help->data, RESET);
       return 0;
     }
+    
     printf("%sError: %s%s\n", RED, "Invalid action", RESET);
     return 1;
 

@@ -68,3 +68,11 @@ The Parts explanation:
  - Action : The actions folder contains the functions that are responsible for the actions that the user can do with the project. like (start, list_models, remove_model, etc)
 - Ai Functions : The ai_functions folder contains functions callbacks that the AI can call to interact with the project. 
   check [OpenAiSdk](https://www.facebook.com/groups/264059710385123?locale=pt_BR)
+- Assets : The assets folder contains the functions that are responsible for the assets of the project. like (list_assets_files, get_asset, etc)
+- Chat : The chat folder contains the functions that are responsible for the chat of the project. like (send_message, get_message, etc)
+- Config : The config folder contains the constants of the project. like (consts.actions, consts.flags, consts.paths, macros.colors)
+- Confjson : The confjson folder contains the functions that are responsible for the configuration json models of the project. like (load_config, save_config, etc)
+- Imports : The imports are managed by SilverChain check [SilverChain](https://github.com/OUIsolutions/SilverChain)
+- Model Props : The model_props folder contains the functions that are responsible for the model properties of the project. like (get_model_props, set_model_props, etc)
+- Namespace : The namespace folder contains the initialization of project namespaces function pointers 
+
