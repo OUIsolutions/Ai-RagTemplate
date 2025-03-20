@@ -1,1 +1,0 @@
-faça a documentação de assets_embed_vars.md baseados nas implementações de fdeclare.assets.h e types.assets.h escreva em ingles
