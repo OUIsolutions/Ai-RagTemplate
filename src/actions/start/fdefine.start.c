@@ -42,6 +42,10 @@ int start_action(){
          break;
       }
       const char *first_answer = openai.response.get_content_str(response,0);
+      if(first_answer == NULL){
+        printf("%sError: %s%s\n", RED, "No answer found", RESET);
+        break;
+      }
       printf("%sAnswer: %s%s\n", BLUE, first_answer, RESET);
       openai.openai_interface.add_response_to_history(openAi, response,0);
   
