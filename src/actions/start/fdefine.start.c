@@ -38,6 +38,7 @@ int start_action(){
 
       openai.openai_interface.add_system_prompt(openAi,cJSON_GetStringValue(current_rule));
     }
+    
 
   // configure_read_asset_callbacks(openAi);
     configure_list_recursively_callbacks(openAi);
@@ -76,7 +77,7 @@ int start_action(){
         openai.openai_interface.add_response_to_history(openAi, response,0);
 
     }  
-
+    cJSON_Delete(rules);
 
     //printf("data collected: %s\n", cJSON_Print(openAi->messages));
     openai.openai_interface.free(openAi);
