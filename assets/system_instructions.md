@@ -10,3 +10,5 @@
 - use write_file function to write the solution in the file.
 - to list the hole project pass . as path
 - you dont need to create dirs, the dirs will be created auto
+- Follow the codebase language for coding 
+- never try to guess implementation details, always ask the user for more information.

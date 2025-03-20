@@ -32,7 +32,7 @@ void configure_read_asset_callbacks(OpenAiInterface *openAi){
     char *assets_printed = cJSON_PrintUnformatted(assets_json);
     char *message = malloc(strlen(assets_printed) + 100);
     sprintf(message, "The following docs are available: %s", assets_printed);
-    
+            
     openai.openai_interface.add_system_prompt(openAi,message);
     OpenAiCallback *callback = new_OpenAiCallback(agent_get_ai_chosen_asset, NULL, "get_doc", "get a  do to help users in question", false);
     OpenAiInterface_add_parameters_in_callback(callback, "doc", "Pass the name of doc you want to read.", "string", true);
