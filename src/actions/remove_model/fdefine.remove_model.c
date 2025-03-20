@@ -25,7 +25,7 @@ int remove_model(){
     bool found = false;
     //test if model already exists
     int size = cJSON_GetArraySize(parsed);
-    for(int i = size-1; i >= 0; i++){
+    for(int i = size-1; i >= 0; i--){
         cJSON *obj = cJSON_GetArrayItem(parsed, i);
         cJSON *model_obj = cJSON_GetObjectItem(obj, "model");
         if(strcmp(model_obj->valuestring, model) == 0){
@@ -38,7 +38,7 @@ int remove_model(){
         printf("%sError: Model not found%s\n", RED, RESET);
         return 1;
     }
-    
+
     char *dumped = cJSON_Print(parsed);
     dtw.write_string_file_content(models_path, dumped);
     cJSON_Delete(parsed);
