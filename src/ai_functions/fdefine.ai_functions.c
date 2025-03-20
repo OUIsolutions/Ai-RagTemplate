@@ -76,7 +76,7 @@ char *agent_read_file(cJSON *args, void *pointer){
         return NULL;
     }
     char *content =dtw.load_string_file_content(path->valuestring);
-    printf("%s AI READ: %s\n",YELLOW, path->valuestring, RESET);
+    printf("%s AI READDED: %s\n",YELLOW, path->valuestring, RESET);
     return content;
 }
 
