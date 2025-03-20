@@ -1,1 +1,1 @@
-faça a função get_user_config_models_path em fdefine.conf.json  funcionar no windows
+faça a função get_user_config_models_path em fdefine.conf_json.c funcionar no windows

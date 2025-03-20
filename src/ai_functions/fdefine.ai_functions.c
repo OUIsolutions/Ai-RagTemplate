@@ -51,12 +51,19 @@ char *agent_list_recursively(cJSON *args, void *pointer){
     if(!cJSON_IsString(path)){
         return NULL;
     }
-    DtwStringArray *all_itens = dtw.list_files_recursively(path->valuestring,true);
+    DtwStringArray *all_itens = dtw.list_files_recursively(path->valuestring,false);
     cJSON *all_intens_cjson = cJSON_CreateArray();
     for(int i = 0; i < all_itens->size; i++){
 
         char *current_file = all_itens->strings[i]; 
-        cJSON_AddItemToArray(all_intens_cjson, cJSON_CreateString(current_file));
+
+        bool is_hidden = dtw_starts_with(current_file, ".");
+        if(!is_hidden){
+            char *joined = dtw_concat_path(path->valuestring, current_file);
+            cJSON_AddItemToArray(all_intens_cjson, cJSON_CreateString(joined));
+            free(joined);
+        }
+
     }
     dtw.string_array.free(all_itens);
     char *all_intens_string = cJSON_PrintUnformatted(all_intens_cjson);
@@ -72,7 +79,7 @@ void configure_list_recursively_callbacks(OpenAiInterface *openAi){
     OpenAiInterface_add_parameters_in_callback(callback, "path", "Pass the path you want to list recursively.", "string", true);
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 }
-
+/*
 
 char *agent_list(cJSON *args, void *pointer){
     
@@ -100,7 +107,7 @@ void configure_list_callbacks(OpenAiInterface *openAi){
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 }
 
-
+*/
 char *agent_read_file(cJSON *args, void *pointer){
     cJSON *path = cJSON_GetObjectItem(args, "path");
     if(!cJSON_IsString(path)){
