@@ -4,8 +4,8 @@ function Install_dependencies()
     os.execute("mkdir -p dependencies")
 
     local libs = {
-        { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/9.0.003/doTheWorld.h", path = "dependencies/doTheWorld.h" },
-        { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/9.0.003/doTheWorld.c", path = "dependencies/doTheWorld.c" },
+        { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/10.0.0/doTheWorld.h", path = "dependencies/doTheWorld.h" },
+        { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/10.0.0/doTheWorld.c", path = "dependencies/doTheWorld.c" },
         { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.2.004/BearHttpsClient.h", path = "dependencies/BearHttpsClient.h" },
         { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.2.004/BearHttpsClient.c", path = "dependencies/BearHttpsClient.c" },
         { url = "https://github.com/OUIsolutions/C-argv-parser/releases/download/0.0.1/CArgvParse.h", path = "dependencies/CArgvParse.h" },
@@ -21,5 +21,6 @@ function Install_dependencies()
             return darwin.dtw.generate_sha_from_file(lib.path)
         end
         cache_execution({ "download", lib.url, lib.path }, executor, side_effect_verifier)
+
     end
 end
