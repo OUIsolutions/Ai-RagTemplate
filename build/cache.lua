@@ -1,8 +1,8 @@
 
 
 function cache_execution(entries,executor,side_efect_verifier)
-
-    local entreis_data  = darwin.json.dumps_to_string(entries)
+    local ident = false
+    local entreis_data  = darwin.json.dumps_to_string(entries,ident)
     local entries_sha = darwin.dtw.generate_sha(entreis_data)
     
     local side_effect_sha = darwin.dtw.load_file(".cacherag/"..entries_sha)
