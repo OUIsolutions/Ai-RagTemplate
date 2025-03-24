@@ -5,4 +5,4 @@
 #include "../imports/imports.types.h"
 //silver_chain_scope_end
 
-const char *models_json = ".oui_models.json";
+const char *models_json = ".encrypted.json";
