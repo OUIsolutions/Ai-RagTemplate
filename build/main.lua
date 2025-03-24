@@ -30,6 +30,7 @@ function main()
         print("Please provide an encrypt_key")
         return
     end
+    
     create_encrypt_key(encrypt_key)
 
     Install_dependencies()

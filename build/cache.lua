@@ -13,7 +13,6 @@ function cache_execution(entries,executor,side_efect_verifier)
             return
         end
     end
-
     print("executing: ",entreis_data)
 
     executor()
