@@ -4,6 +4,7 @@ keys.txt
 # Object files
 *.o
 *.ko
+macros.encrypt_key.h
 *.obj
 *.elf
 .cache
