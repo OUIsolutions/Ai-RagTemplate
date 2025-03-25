@@ -132,3 +132,19 @@ void configure_execute_command_callbacks(OpenAiInterface *openAi){
     OpenAiInterface_add_parameters_in_callback(callback, "command", "Pass the command you want to execute.", "string", true);
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 }
+
+char *agent_remove_file(cJSON *args, void *pointer){
+    cJSON *path = cJSON_GetObjectItem(args, "path");
+    if(!cJSON_IsString(path)){
+        return NULL;
+    }
+    dtw.remove_any(path->valuestring);
+    printf("%s AI REMOVED: %s\n",YELLOW, path->valuestring, RESET);
+    return "file or directory removed";
+}
+
+void configure_remove_file_callbacks(OpenAiInterface *openAi){
+    OpenAiCallback *callback = new_OpenAiCallback(agent_remove_file, NULL, "remove_file", "remove a file or directory", false);
+    OpenAiInterface_add_parameters_in_callback(callback, "path", "Pass the path you want to remove.", "string", true);
+    OpenAiInterface_add_callback_function_by_tools(openAi, callback);
+}
