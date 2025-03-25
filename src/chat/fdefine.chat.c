@@ -32,7 +32,7 @@ short Reg_init_chat(char *buffer, size_t size_max_buffer, const char *initial_ca
 
       long now_temp_size = temp_size - 2;
       if(strcmp(buffer_temp + now_temp_size, "\
-") == 0){ //compara o final com shift + Enter
+") == 0){ 
         memcpy(buffer + size_buffer, buffer_temp, now_temp_size);
         size_max -= now_temp_size;
         size_buffer += now_temp_size + 1;
