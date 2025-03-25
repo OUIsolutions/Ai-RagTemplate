@@ -2,7 +2,7 @@
 A Rag CLI Template for C
 
 ## About the Project
-This project was written by Grok, an AI model developed by xAI. Ai-RagTemplate is a powerful tool for creating RAG (Retrieval-Augmented Generation) based applications in C. It provides a robust framework for managing language models, configuring APIs, and building CLI applications with ease.
+This README was written by Grok with Ai-RagTemplate, an AI model developed by xAI. Ai-RagTemplate is a powerful tool for creating RAG (Retrieval-Augmented Generation) based applications in C. It provides a robust framework for managing language models, configuring APIs, and building CLI applications with ease.
 
 ### Key Features
 - **Model Configuration**: Easily configure and manage different language models.
