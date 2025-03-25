@@ -1,3 +1,9 @@
+//silver_chain_scope_start
+//DONT MODIFY THIS COMMENT
+//this import is computationally generated
+//mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
+#include "imports/imports.fdefine.h"
+//silver_chain_scope_end
 
 
 
@@ -5,6 +11,8 @@
 int main(int argc, char  *argv[]){
     start_namespace();
     args_obj  = args.newCArgvParse(argc, argv);
+
+    
     encryption = dtw.encryption.newAES_Custom_CBC_v1_interface("test");
     
     const char *action = args.get_arg(&args_obj, 1);
