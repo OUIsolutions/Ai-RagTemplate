@@ -11,18 +11,18 @@
 int main(int argc, char  *argv[]){
     start_namespace();
     args_obj  = args.newCArgvParse(argc, argv);
-   
+
     unsigned char *encryption_key = (unsigned char*)malloc(AiRagTemplatekey_size);
-    AiRagTemplate_get_key(encryption_key);
+    AiRagTemplate_get_key(encryption_key);    
+    encryption = dtw.encryption.newAES_Custom_CBC_v1_interface((char*)encryption_key);
+
+
     bool configured = create_user_config_models_path(encryption_key);
     if(!configured){
         free(encryption_key);
         return 1;
     }
     
-    encryption = dtw.encryption.newAES_Custom_CBC_v1_interface((char*)encryption_key);
-
-
     free(encryption_key);
 
     const char *action = args.get_arg(&args_obj, 1);

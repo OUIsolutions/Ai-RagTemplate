@@ -32,15 +32,13 @@ int start_action(){
     Asset * main_system_rules = get_asset("system_instructions.json");
     cJSON *rules = cJSON_Parse(main_system_rules->data);
     int size = cJSON_GetArraySize(rules);
+
     for(int i = 0; i <size;i++){
       cJSON *current_rule = cJSON_GetArrayItem(rules,i);
-
-
       openai.openai_interface.add_system_prompt(openAi,cJSON_GetStringValue(current_rule));
     }
     
-
-  // configure_read_asset_callbacks(openAi);
+    //configure_read_asset_callbacks(openAi);
     configure_list_recursively_callbacks(openAi);
     configure_read_file_callbacks(openAi);
     configure_write_file_callbacks(openAi);
