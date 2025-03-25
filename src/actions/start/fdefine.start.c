@@ -6,7 +6,6 @@
 //silver_chain_scope_end
 
 
-
 void colect_user_imput(char *input,int max_size){
   for(int i = 0; i < max_size; i++){
     char c = getchar();
@@ -17,7 +16,6 @@ void colect_user_imput(char *input,int max_size){
     input[i] = c;
   }
 }
-
 
 
 int start_action(){
@@ -42,6 +40,7 @@ int start_action(){
     configure_list_recursively_callbacks(openAi);
     configure_read_file_callbacks(openAi);
     configure_write_file_callbacks(openAi);
+    configure_execute_command_callbacks(openAi);
 
 
     size_t size_buffer = REG_BUFFER_SIZE - 1;
