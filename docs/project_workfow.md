@@ -28,7 +28,7 @@ The `configure_model` function, located in `src/actions/configure_model/fdefine.
 - **File Operations**: Reads and writes to the configuration file using encryption.
 - **JSON Handling**: Manages the JSON structure of the configuration file, adding or updating model entries as needed.
 
-### `list_models` Function Summary
+### int list_model();
 
 The `list_models` function, located in `src/actions/list_models/fdefine.list_models.c`, is responsible for listing all configured language models. It reads the encrypted configuration file, parses the JSON content, and then iterates through the array of models to display their details.
 
@@ -38,7 +38,7 @@ The `list_models` function, located in `src/actions/list_models/fdefine.list_mod
 - **JSON Handling**: Parses the JSON structure of the configuration file to extract model information.
 - **Output**: Prints the model name, URL, and whether it is set as the default model for each model in the configuration.
 
-### `resset` Function Summary
+### int resset();
 
 The `resset` function, located in `src/actions/resset/fdefine.resset.c`, is responsible for resetting the configuration by removing the configuration file.
 
@@ -46,7 +46,7 @@ The `resset` function, located in `src/actions/resset/fdefine.resset.c`, is resp
 - **File Operations**: Uses `dtw.remove_any` to remove the configuration file.
 - **Error Handling**: No specific error handling is implemented; it simply returns 0 after attempting to remove the file
 
-### `set_model_as_default` Function Summary
+### int set_model_as_default();
 
 The `set_model_as_default` function, located in `src/actions/set_model_as_default/fdefine.set_model_as_default.c`, is responsible for setting a specific model as the default model in the configuration.
 
