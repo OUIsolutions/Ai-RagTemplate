@@ -12,6 +12,7 @@ char *agent_get_ai_chosen_asset(cJSON *args, void *pointer){
   if(!cJSON_IsString(asset)){
         return NULL;
   }
+  printf("%s AI READDED DOCS: %s\n",YELLOW,asset->valuestring, RESET);
 
   Asset *current_aset = get_asset(asset->valuestring);
 
@@ -25,7 +26,7 @@ char *agent_get_ai_chosen_asset(cJSON *args, void *pointer){
 
 void configure_read_asset_callbacks(OpenAiInterface *openAi){
     cJSON *assets_json = cJSON_CreateArray();
-    DtwStringArray *all_assets = list_assets_recursively(NULL);
+    DtwStringArray *all_assets = list_assets_recursively("docs");
     for(int i = 0; i < all_assets->size; i++){
         cJSON_AddItemToArray(assets_json, cJSON_CreateString(all_assets->strings[i]));
     }
@@ -34,7 +35,7 @@ void configure_read_asset_callbacks(OpenAiInterface *openAi){
     sprintf(message, "The following docs are available: %s", assets_printed);
             
     openai.openai_interface.add_system_prompt(openAi,message);
-    OpenAiCallback *callback = new_OpenAiCallback(agent_get_ai_chosen_asset, NULL, "get_doc", "get a  do to help users in question", false);
+    OpenAiCallback *callback = new_OpenAiCallback(agent_get_ai_chosen_asset, NULL, "get_doc", "get a documentation text", false);
     OpenAiInterface_add_parameters_in_callback(callback, "doc", "Pass the name of doc you want to read.", "string", true);
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 

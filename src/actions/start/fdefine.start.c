@@ -38,7 +38,7 @@ int start_action(){
       openai.openai_interface.add_system_prompt(openAi,cJSON_GetStringValue(current_rule));
     }
     
-    //configure_read_asset_callbacks(openAi);
+    configure_read_asset_callbacks(openAi);
     configure_list_recursively_callbacks(openAi);
     configure_read_file_callbacks(openAi);
     configure_write_file_callbacks(openAi);
