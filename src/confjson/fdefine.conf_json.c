@@ -18,7 +18,7 @@ bool create_user_config_models_path(unsigned char *encryption_key){
     }
 
     DtwHash *hasher = dtw.hash.newHash();
-    dtw.hash.digest_any(hasher, encryption_key, AiRagTemplatekey_size);
+    dtw.hash.digest_any(hasher, encryption_key, RagCraftkey_size);
     dtw.hash.digest_string(hasher,"iisjf8438u38uu91nnvffn");
 
     config_path = dtw.concat_path(homedir,hasher->hash);

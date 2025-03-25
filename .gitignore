@@ -5,6 +5,7 @@ keys.txt
 *.o
 *.ko
 macros.encrypt_key.h
+RagCraft
 *.obj
 *.elf
 .cache
