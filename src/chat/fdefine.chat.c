@@ -6,8 +6,6 @@
 //silver_chain_scope_end
 
 
-
-
 short Reg_init_chat(char *buffer, size_t size_max_buffer, const char *initial_caracter){
 
   memset(buffer, 0, size_max_buffer);
@@ -33,7 +31,8 @@ short Reg_init_chat(char *buffer, size_t size_max_buffer, const char *initial_ca
       }
 
       long now_temp_size = temp_size - 2;
-      if(strcmp(buffer_temp + now_temp_size, "\\\n") == 0){ //compara o final com shift + Enter
+      if(strcmp(buffer_temp + now_temp_size, "\
+") == 0){ //compara o final com shift + Enter
         memcpy(buffer + size_buffer, buffer_temp, now_temp_size);
         size_max -= now_temp_size;
         size_buffer += now_temp_size + 1;
@@ -58,6 +57,14 @@ short Reg_init_chat(char *buffer, size_t size_max_buffer, const char *initial_ca
   if(strcmp(buffer, "exit") == 0){
     return REG_CHAT_RESPONSE_EXIT_COMMAND;
   }
+  if(strcmp(buffer, "clear") == 0){
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+    return REG_CHAT_RESPONSE_CLEAR_COMMAND;
+  }
 
   return REG_CHAT_RESPONSE_BUFFER_OK;
 }
@@ -75,7 +82,8 @@ const char *Reg_chat_returned_handling(short response_chat){
   if(response_chat == REG_CHAT_RESPONSE_ERROR_ALOCATED){
     return REG_CHAT_RESPONSE_ERROR_ALOCATED_MESSAGE;
   }
+  if(response_chat == REG_CHAT_RESPONSE_CLEAR_COMMAND){
+    return REG_CHAT_RESPONSE_CLEAR_COMMAND_MESSAGE;
+  }
   return REG_CHAT_RESPONSE_GENERIC_ERROR;
 }
-
-
