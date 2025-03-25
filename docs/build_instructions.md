@@ -3,11 +3,11 @@
 
 ### Build Requirements 
 #### Darwin 
-For Build the project you must have [Darwin](https://github.com/OUIsolutions/Darwin) installed on version 0.1.23
+For Build the project you must have [Darwin](https://github.com/OUIsolutions/Darwin) installed on version 0.2.0
 if you are on linux you can install darwin with:
 
 ```bash
-curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.1.23/darwin.c -o darwin.c &&
+curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.2.0/darwin.c -o darwin.c &&
 gcc darwin.c -o darwin.out &&
 sudo mv darwin.out /usr/bin/darwin
 ```
@@ -19,13 +19,13 @@ You must have podman or docker installed on your machine to build the project, y
 ### Local Build
 make a local build to test with the following command it will create the **AiRagTemplatetest.out** file
 ```bash
-darwin run_blueprint build/ --mode folder local_linux_build
+darwin run_blueprint build/ --mode folder local_linux_build --encrypt_key "your_encryption key"
 ```
 
 ### Full Build
 if you want to make a full build to all platforms you can use the following command, it will create the following files:
 ```bash
- darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windowsi64_build rpm_static_build debian_static_build
+ darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windowsi64_build rpm_static_build debian_static_build -encrypt_key "your_encryption key"
 ```
 
 
