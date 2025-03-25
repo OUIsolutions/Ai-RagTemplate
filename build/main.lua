@@ -3,9 +3,9 @@ darwin = darwin
 
 
 function main()
-    local possible_test = darwin.argv.get_next_unused()
+    local first_action = darwin.argv.get_next_unused()
 
-    if possible_test == "test_container" then
+    if first_action == "test_container" then
         local container_name = darwin.argv.get_next_unused()
         if container_name == nil then
             print("Please provide a container name")
@@ -24,6 +24,20 @@ function main()
 
         return
     end
+
+    if first_action == "commit" then
+        local message = darwin.argv.get_next_unused()
+        if not message then
+            print("Please provide a commit message")
+            return
+        end
+        darwin.silverchain.remove("src")
+        os.execute("git add .")
+        os.execute("git commit -m \"" .. message .. "\"")
+        os.execute("git push")
+        return
+        
+    end 
 
     local encrypt_key = darwin.argv.get_flag_arg_by_index({ "encrypt_key"}, 1)
     if not encrypt_key then
