@@ -18,3 +18,13 @@ after it , it gets the **action** from the user,  witch correspond to the first 
 and then, call one of the actions functions located at [actions](/src/actions/)
 
 ### Actions
+
+### int configure_model();
+
+The `configure_model` function, located in `src/actions/configure_model/fdefine.configure_model.c`, is responsible for configuring a language model. It checks if the necessary arguments (`model`, `key`, and `url`) have been provided. If any are missing, it displays an error message. Otherwise, it reads the content of the configuration file, checks if the model already exists, and updates or adds the model to the configuration file in JSON format. The function uses encryption to read and write the configuration file.
+
+- **Functionality**: Configures a language model by checking for required arguments and updating the configuration file.
+- **Error Handling**: Displays error messages if `model`, `key`, or `url` are not provided.
+- **File Operations**: Reads and writes to the configuration file using encryption.
+- **JSON Handling**: Manages the JSON structure of the configuration file, adding or updating model entries as needed.
+
