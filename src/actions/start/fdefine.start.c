@@ -41,6 +41,7 @@ int start_action(){
     configure_read_file_callbacks(openAi);
     configure_write_file_callbacks(openAi);
     configure_execute_command_callbacks(openAi);
+    configure_remove_file_callbacks(openAi);
 
 
     size_t size_buffer = REG_BUFFER_SIZE - 1;
