@@ -5,7 +5,6 @@
 #include "../imports/imports.globals.h"
 //silver_chain_scope_end
 
-
 char *agent_get_ai_chosen_asset(cJSON *args, void *pointer){
 
   cJSON *asset = cJSON_GetObjectItem(args, "doc");
@@ -116,5 +115,20 @@ void configure_write_file_callbacks(OpenAiInterface *openAi){
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 }
 
+char *agent_execute_command(cJSON *args, void *pointer){
+    cJSON *command = cJSON_GetObjectItem(args, "command");
+    if(!cJSON_IsString(command)){
+        return NULL;
+    }
+    int result = system(command->valuestring);
+    printf("%s AI EXECUTED COMMAND: %s\n",YELLOW, command->valuestring, RESET);
+    char *result_str = malloc(20);
+    sprintf(result_str, "%d", result);
+    return result_str;
+}
 
-
+void configure_execute_command_callbacks(OpenAiInterface *openAi){
+    OpenAiCallback *callback = new_OpenAiCallback(agent_execute_command, NULL, "execute_command", "execute a command", false);
+    OpenAiInterface_add_parameters_in_callback(callback, "command", "Pass the command you want to execute.", "string", true);
+    OpenAiInterface_add_callback_function_by_tools(openAi, callback);
+}
