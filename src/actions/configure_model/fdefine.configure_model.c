@@ -28,7 +28,6 @@ int configure_model(){
     }
    
     char *model_json_content = dtw.encryption.load_string_file_content_hex(encryption,config_path);
-    
     if(model_json_content == NULL){
         cJSON *empty_array = cJSON_CreateArray();
         cJSON *model_obj = create_model_obj(model, key, url);
@@ -36,15 +35,17 @@ int configure_model(){
 
 
         char *dumped = cJSON_Print(empty_array);
-        dtw.encryption.write_string_file_content(encryption, config_path, dumped);
+        dtw.encryption.write_string_file_content_hex(encryption, config_path, dumped);
         cJSON_Delete(empty_array);
         free(dumped);
         return 0;
     }
+
     cJSON *parsed = get_parsed_json(model_json_content);
     if(parsed == NULL){
         return 1;
     }
+
     //test if model already exists
     int size = cJSON_GetArraySize(parsed);
     for(int i = 0; i < size; i++){
@@ -53,10 +54,14 @@ int configure_model(){
         if(strcmp(model_obj->valuestring, model) == 0){
             //delete the index
             cJSON_DeleteItemFromArray(parsed, i);
+
             cJSON *new_model_obj = create_model_obj(model, key, url);
+
             cJSON_AddItemToArray(parsed, new_model_obj);
             char *dumped = cJSON_Print(parsed);
+            
             dtw.encryption.write_string_file_content_hex(encryption, config_path, dumped);
+
             cJSON_Delete(parsed);
             free(dumped);
 
@@ -67,6 +72,7 @@ int configure_model(){
     cJSON *model_obj = create_model_obj(model, key, url);
     cJSON_AddItemToArray(parsed, model_obj);
     char *dumped = cJSON_Print(parsed);
+
     dtw.encryption.write_string_file_content_hex(encryption, config_path, dumped);
     cJSON_Delete(parsed);
     free(dumped);
