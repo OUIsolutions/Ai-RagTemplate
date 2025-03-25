@@ -12,10 +12,7 @@ int remove_model(){
         printf("%sError: No Model Provided %s\n", RED, RESET);
         return 1;
     }
-    char *models_path = get_user_config_models_path();
-    if(models_path == NULL){
-        return 1;
-    }
+  
     char *model_json_content = dtw.encryption.load_string_file_content_hex(encryption,config_path);
     if(model_json_content == NULL){
         printf("%sError: No models found%s\n", RED, RESET);
@@ -43,7 +40,7 @@ int remove_model(){
     }
 
     char *dumped = cJSON_Print(parsed);
-    dtw.encryption.write_string_file_content(config_path, dumped);
+    dtw.encryption.write_string_file_content_hex(encryption, config_path, dumped);
     cJSON_Delete(parsed);
     free(dumped);
     return 0;

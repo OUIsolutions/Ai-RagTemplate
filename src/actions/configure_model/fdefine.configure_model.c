@@ -35,7 +35,7 @@ int configure_model(){
 
 
         char *dumped = cJSON_Print(empty_array);
-        dtw.write_string_file_content(config_path, dumped);
+        dtw.encryption.write_string_file_content(encryption, config_path, dumped);
         cJSON_Delete(empty_array);
         free(dumped);
         return 0;
@@ -55,7 +55,7 @@ int configure_model(){
             cJSON *new_model_obj = create_model_obj(model, key, url);
             cJSON_AddItemToArray(parsed, new_model_obj);
             char *dumped = cJSON_Print(parsed);
-            dtw.encryption.write_string_file_content(config_path, dumped);
+            dtw.encryption.write_string_file_content_hex(encryption, config_path, dumped);
             cJSON_Delete(parsed);
             free(dumped);
 
@@ -66,7 +66,7 @@ int configure_model(){
     cJSON *model_obj = create_model_obj(model, key, url);
     cJSON_AddItemToArray(parsed, model_obj);
     char *dumped = cJSON_Print(parsed);
-    dtw.encryption.write_string_file_content(config_path, dumped);
+    dtw.encryption.write_string_file_content_hex(encryption, config_path, dumped);
     cJSON_Delete(parsed);
     free(dumped);
     

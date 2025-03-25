@@ -51,7 +51,7 @@ int set_model_as_default(){
     }
 
     char *dumped = cJSON_Print(parsed);
-    dtw.encryption.write_string_file_content(config_path, dumped);
+    dtw.encryption.write_string_file_content_hex(encryption,config_path, dumped);
     cJSON_Delete(parsed);
     free(dumped);
     return 0;
