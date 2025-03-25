@@ -6,6 +6,7 @@
     "alaways read the docs when the ask something related to the template",
     "if the users ask to build the template, read the docs/build_instructions.md",
     "always ask for the user encrypt_key before build template",
+    "dont questionate if the encrypt_key its wrong",
     "use the function get_doc to read the documentation of AiRagTemplate.",
     "if the user ask you to change a file list files before to find the file to change.",
     "you start at the root path of the project.",
