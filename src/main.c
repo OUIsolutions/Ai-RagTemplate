@@ -7,13 +7,12 @@
 
 
 
-
 int main(int argc, char  *argv[]){
     start_namespace();
     args_obj  = args.newCArgvParse(argc, argv);
 
-    unsigned char *encryption_key = (unsigned char*)malloc(AiRagTemplatekey_size);
-    AiRagTemplate_get_key(encryption_key);    
+    unsigned char *encryption_key = (unsigned char*)malloc(RagCraftkey_size);
+    RagCraft_get_key(encryption_key);    
     encryption = dtw.encryption.newAES_Custom_CBC_v1_interface((char*)encryption_key);
 
 

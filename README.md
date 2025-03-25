@@ -1,8 +1,8 @@
-# Ai-RagTemplate
+# RagCraft
 A Rag CLI Template for C
 
 ## About the Project
-This README was written by Grok with Ai-RagTemplate, an AI model developed by xAI. AiRagTemplate is a powerful tool for creating RAG (Retrieval-Augmented Generation) based applications in C. It provides a robust framework for managing language models, configuring APIs, and building CLI applications with ease.
+This README was written by Grok with RagCraft, an AI model developed by xAI. RagCraft is a powerful tool for creating RAG (Retrieval-Augmented Generation) based applications in C. It provides a robust framework for managing language models, configuring APIs, and building CLI applications with ease.
 
 ### Key Features
 - **Model Configuration**: Easily configure and manage different language models.
@@ -12,7 +12,7 @@ This README was written by Grok with Ai-RagTemplate, an AI model developed by xA
 - **Encryption**: Secure storage of configuration files with encryption.
 
 ## Getting Started
-To get started with AiRagTemplate, follow these steps:
+To get started with RagCraft, follow these steps:
 
 1. **Install Dependencies**: The project requires Darwin and either Docker or Podman. Darwin will self-install the other dependencies. Refer to the [build_instructions.md](/docs/build_instructions.md) for installation details. 
 
@@ -21,19 +21,19 @@ To get started with AiRagTemplate, follow these steps:
 curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.2.0/darwin.c -o darwin.c && gcc darwin.c -o darwin.out && sudo mv darwin.out /usr/bin/darwin
 ```
 
-2. **Local Build**: Perform a local build for testing with the following command, which will create the **AiRagTemplatetest.out** file:
+2. **Local Build**: Perform a local build for testing with the following command, which will create the **RagCrafttest.out** file:
 ```bash
 darwin run_blueprint build/ --mode folder local_linux_build
 ```
 
 3. **Configure a Model**: Use the CLI to configure a language model. For example:
 ```bash
-AiRagTemplate configure_model --model grok-2-latest --url https://api.x.ai/v1/chat/completions --key YOUR_API_KEY
+RagCraft configure_model --model grok-2-latest --url https://api.x.ai/v1/chat/completions --key YOUR_API_KEY
 ```
 
 4. **Start the Application**: Launch the application with:
 ```bash
-AiRagTemplate start
+RagCraft start
 ```
 
 ## Docs 
