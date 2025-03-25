@@ -31,21 +31,4 @@ darwin run_blueprint build/ --mode folder local_linux_build
    AiRagTemplate start
    ```
 
-## Dependencies
-- **C-argv-parser**: For parsing command-line arguments.
-- **BearHttpsClient**: For HTTPS API calls.
-- **ClientSDKOpenAI**: Main SDK for AI functions.
-- **DoTheWorld**: For file and directory operations.
-- **cJSON**: For JSON parsing and manipulation.
 
-## Build Instructions
-For detailed build instructions, please refer to the [build_instructions.md](/docs/build_instructions.md) file.
-
-## CLI Usage
-For detailed CLI usage, please refer to the [cli_usage.md](/docs/cli_usage.md) file.
-
-## Licenses
-This project uses several open-source libraries. For more information on licenses, please refer to the [licenses.md](/docs/licenses.md) file.
-
-## Project Workflow
-For an overview of the project workflow, please refer to the [project_workflow.md](/docs/project_workflow.md) file.
