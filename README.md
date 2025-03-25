@@ -11,17 +11,25 @@ This project was written by Grok, an AI model developed by xAI. Ai-RagTemplate i
 - **Cross-Platform Builds**: Support for building on multiple platforms including Linux, Windows, and macOS.
 - **Encryption**: Secure storage of configuration files with encryption.
 
-## Local Build
-Perform a local build for testing with the following command, which will create the **AiRagTemplatetest.out** file:
-```bash
-darwin run_blueprint build/ --mode folder local_linux_build
-```
+## Getting Started
+To get started with Ai-RagTemplate, follow these steps:
 
-## Full Build
-To perform a full build for all platforms, use the following command:
-```bash
-darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windowsi64_build rpm_static_build debian_static_build
-```
+1. **Install Dependencies**: Ensure you have the necessary dependencies installed. Refer to the [project_dependencies.md](/docs/project_dependencies.md) file for a list of dependencies.
+
+2. **Local Build**: Perform a local build for testing with the following command, which will create the **AiRagTemplatetest.out** file:
+   ```bash
+darwin run_blueprint build/ --mode folder local_linux_build
+   ```
+
+3. **Configure a Model**: Use the CLI to configure a language model. For example:
+   ```bash
+   AiRagTemplate configure_model --model o3-mini --url https://api.openai.com/v1/chat/completions --key YOUR_API_KEY
+   ```
+
+4. **Start the Application**: Launch the application with:
+   ```bash
+   AiRagTemplate start
+   ```
 
 ## Dependencies
 - **C-argv-parser**: For parsing command-line arguments.
