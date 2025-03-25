@@ -25,19 +25,7 @@ function main()
         return
     end
 
-    if first_action == "commit" then
-        local message = darwin.argv.get_next_unused()
-        if not message then
-            print("Please provide a commit message")
-            return
-        end
-        darwin.silverchain.remove("src")
-        os.execute("git add .")
-        os.execute("git commit -m \"" .. message .. "\"")
-        os.execute("git push")
-        return
-        
-    end 
+  
 
     local encrypt_key = darwin.argv.get_flag_arg_by_index({ "encrypt_key"}, 1)
     if not encrypt_key then
