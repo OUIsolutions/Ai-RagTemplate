@@ -22,12 +22,8 @@ void freeModelProps(ModelProps *modelProps){
 }
 
 ModelProps * get_model_props_with_model_name(const char *model){
-    
-    char *models_path = get_user_config_models_path();
-    if(models_path == NULL){
-        return NULL;
-    }
-    char *content = dtw.load_string_file_content(models_path);
+
+    char *content =dtw.encryption.load_string_file_content_hex(encryption,config_path);
     if(content == NULL){
         printf("%sError: No models found%s\n", RED, RESET);
         return NULL;
@@ -59,11 +55,8 @@ ModelProps * get_model_props_default(){
 
     //trys to get the default model
 
-    char *models_path = get_user_config_models_path();
-    if(models_path == NULL){
-        return NULL;
-    }
-    char *content = dtw.load_string_file_content(models_path);
+
+    char *content = dtw.encryption.load_string_file_content_hex(encryption,config_path);
     if(content == NULL){
         printf("%sError: No models found%s\n", RED, RESET);
         return NULL;

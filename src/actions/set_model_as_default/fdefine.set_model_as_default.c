@@ -13,11 +13,8 @@ int set_model_as_default(){
         return 1;
     }
 
-    char *models_path = get_user_config_models_path();
-    if(models_path == NULL){
-        return 1;
-    }
-    char *model_json_content = dtw.load_string_file_content(models_path);
+  
+    char *model_json_content =dtw.encryption.load_string_file_content_hex(encryption,config_path);
     if(model_json_content == NULL){
         printf("%sError: No models found%s\n", RED, RESET);
         return 1;

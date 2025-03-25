@@ -12,7 +12,7 @@ int main(int argc, char  *argv[]){
     start_namespace();
     args_obj  = args.newCArgvParse(argc, argv);
    
-    unsigned char *encryption_key = (unsigned char*)maloc(AiRagTemplatekey_size);
+    unsigned char *encryption_key = (unsigned char*)malloc(AiRagTemplatekey_size);
     AiRagTemplate_get_key(encryption_key);
     bool configured = create_user_config_models_path(encryption_key);
     if(!configured){
