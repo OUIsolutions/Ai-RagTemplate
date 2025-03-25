@@ -12,6 +12,7 @@ dependencies
 AiRagTemplate
 globals.assets.c
 .cacherag
+assets/docs
 # Linker output
 *.ilk
 .vscode
