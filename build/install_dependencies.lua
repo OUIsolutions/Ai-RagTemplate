@@ -5,7 +5,7 @@ function Install_dependencies()
 
     local libs = {
         { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/10.0.1/doTheWorld.h", path = "dependencies/doTheWorld.h" },
-        { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/10.0.0/doTheWorld.c", path = "dependencies/doTheWorld.c" },
+        { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/10.0.1/doTheWorld.c", path = "dependencies/doTheWorld.c" },
         { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.2.004/BearHttpsClient.h", path = "dependencies/BearHttpsClient.h" },
         { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.2.004/BearHttpsClient.c", path = "dependencies/BearHttpsClient.c" },
         { url = "https://github.com/OUIsolutions/C-argv-parser/releases/download/0.0.1/CArgvParse.h", path = "dependencies/CArgvParse.h" },
