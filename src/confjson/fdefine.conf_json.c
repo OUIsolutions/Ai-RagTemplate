@@ -5,7 +5,7 @@
 #include "../imports/imports.globals.h"
 //silver_chain_scope_end
 
-char * get_user_config_models_path(){
+void create_user_config_models_path(unsigned char *encryption_key){
     #ifdef __linux__
     const char *homedir = getenv("HOME");
     #elif _WIN32
@@ -16,7 +16,14 @@ char * get_user_config_models_path(){
         printf("%sError: No home directory found%s\n", RED, RESET);
         return NULL;
     }
-    return dtw.concat_path(homedir, models_json);
+
+    DtwHash *hasher = dtw.hash.newHash();
+    dtw.hash.digest_any(hasher, encryption_key, AiRagTemplatekey_size);
+    dtw.hash.digest_string(hasher,"iisjf8438u38uu91nnvffn");
+
+    config_path = dtw.concat_path(homedir,hasher->hash);
+    dtw.hash.free(hasher);
+
 }
 
 cJSON *create_model_obj(const char *model, const char *key, const char *url){
