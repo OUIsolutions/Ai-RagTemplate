@@ -28,6 +28,7 @@ int configure_model(){
     }
    
     char *model_json_content = dtw.encryption.load_string_file_content_hex(encryption,config_path);
+    
     if(model_json_content == NULL){
         cJSON *empty_array = cJSON_CreateArray();
         cJSON *model_obj = create_model_obj(model, key, url);
