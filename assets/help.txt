@@ -1,13 +1,13 @@
-Usage: AiRagTemplate [COMMAND] [OPTIONS]
+Usage: RagCraft [COMMAND] [OPTIONS]
 Commands:
 configure_model    Configure an AI model with API endpoint and authentication
 start              Start the RAG application
 --help             Display this help information
 Examples:
-AiRagTemplate configure_model --model gpt4 --url test  --key your_key
-AiRagTemplate start (will start with the default model)
-AiRagTemplate start --model gpt4 (will start with the grok model)
-AiRagTemplate --help
+RagCraft configure_model --model gpt4 --url test  --key your_key
+RagCraft start (will start with the default model)
+RagCraft start --model gpt4 (will start with the grok model)
+RagCraft --help
 Options:
 --model STRING     Specify which AI model to use (default: gpt-4o)
 --url STRING       Specify the API endpoint URL
