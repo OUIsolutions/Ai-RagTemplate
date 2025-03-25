@@ -12,7 +12,7 @@ gcc darwin.c -o darwin.out &&
 sudo mv darwin.out /usr/bin/darwin
 ```
 #### Podman or Docker 
-You must have podman or docker installed on your machine to build the project, you can set what you want to use on the **build/config.lua** file.
+You must have podman or docker installed on your machine to build the project, you can set what you want to use on the [build/config.lua](/build/config.lua) file.
 
 
 
