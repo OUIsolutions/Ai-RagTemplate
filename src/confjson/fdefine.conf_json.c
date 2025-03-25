@@ -5,7 +5,7 @@
 #include "../imports/imports.globals.h"
 //silver_chain_scope_end
 
-void create_user_config_models_path(unsigned char *encryption_key){
+bool create_user_config_models_path(unsigned char *encryption_key){
     #ifdef __linux__
     const char *homedir = getenv("HOME");
     #elif _WIN32
@@ -14,7 +14,7 @@ void create_user_config_models_path(unsigned char *encryption_key){
 
     if(homedir == NULL){
         printf("%sError: No home directory found%s\n", RED, RESET);
-        return NULL;
+        return false;
     }
 
     DtwHash *hasher = dtw.hash.newHash();
@@ -23,6 +23,7 @@ void create_user_config_models_path(unsigned char *encryption_key){
 
     config_path = dtw.concat_path(homedir,hasher->hash);
     dtw.hash.free(hasher);
+    return true;
 
 }
 

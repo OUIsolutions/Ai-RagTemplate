@@ -14,7 +14,12 @@ int main(int argc, char  *argv[]){
    
     unsigned char *encryption_key = (unsigned char*)maloc(AiRagTemplatekey_size);
     AiRagTemplate_get_key(encryption_key);
-    create_user_config_models_path(encryption_key);
+    bool configured = create_user_config_models_path(encryption_key);
+    if(!configured){
+        free(encryption_key);
+        return 1;
+    }
+    
     encryption = dtw.encryption.newAES_Custom_CBC_v1_interface((char*)encryption_key);
 
 

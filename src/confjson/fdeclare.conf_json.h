@@ -5,7 +5,7 @@
 #include "../imports/imports.consts.h"
 //silver_chain_scope_end
 
-char * get_user_config_models_path();
+bool get_user_config_models_path();
 
 
 cJSON *create_model_obj(const char *model, const char *key, const char *url);
