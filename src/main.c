@@ -14,7 +14,7 @@ int main(int argc, char  *argv[]){
     
     unsigned char *encryption_key = (unsigned char*)malloc(RagCraftkey_size);
     RagCraft_get_key(encryption_key);
-
+    printf("%sEncryption key: %s%s\n", BLUE, encryption_key, RESET);
     encryption = dtw.encryption.newAES_Custom_CBC_v1_interface((char*)encryption_key);
     if(encryption == NULL){
       printf("%sError: %s%s\n", RED, "Invalid encryption key", RESET);
