@@ -7,6 +7,8 @@
 
 
 short Reg_init_chat(char *buffer, size_t size_max_buffer, const char *initial_caracter){
+  strcpy(buffer, "eai beleza");
+  return REG_CHAT_RESPONSE_BUFFER_OK;
 
   memset(buffer, 0, size_max_buffer);
   long size_buffer_temp = size_max_buffer + 1;

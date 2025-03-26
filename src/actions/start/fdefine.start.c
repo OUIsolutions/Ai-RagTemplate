@@ -72,7 +72,6 @@ int start_action(){
         }
         printf("%s < %s: %s%s\n", GREEN,props->model, first_answer, RESET);
         openai.openai_interface.add_response_to_history(openAi, response,0);
-
     }  
 
     free(buffer);
