@@ -71,7 +71,7 @@ int start_action(){
           printf("%sError: %s%s\n", RED, "No answer found", RESET);
           break;
         }
-        printf("%s < Response: %s%s\n", GREEN, first_answer, RESET);
+        printf("%s < %s: %s%s\n", GREEN,props->model, first_answer, RESET);
         openai.openai_interface.add_response_to_history(openAi, response,0);
 
     }  
