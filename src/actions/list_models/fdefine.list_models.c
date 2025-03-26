@@ -14,6 +14,7 @@ int list_model(){
         return 1;
     }
     cJSON *parsed = get_parsed_json(content);
+    free(content);
     if(parsed == NULL){
         return 1;
     }
@@ -31,5 +32,6 @@ int list_model(){
         }
         printf("\n");
     }
+    cJSON_Delete(parsed);
     return 0;
 }
