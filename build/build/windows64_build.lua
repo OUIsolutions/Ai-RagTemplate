@@ -22,6 +22,6 @@ function windowsi64_build()
             { "./src",     "/src" },
             { "./dependencies",     "/dependencies" }
         },
-        command = compiler.."--static -DDEFINE_DEPENDENCIES  /src/main.c -o /release/windows64.exe -lws2_32"
+        command = compiler.." --static -DDEFINE_DEPENDENCIES  /src/main.c -o /release/windows64.exe -lws2_32"
     })
 end

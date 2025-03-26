@@ -172,7 +172,7 @@ char *agent_clear(cJSON *args, void *pointer){
         system("clear");
     #endif
     printf("%s %s CLEARED SCREEN\n",YELLOW,model, RESET);
-    return "cleared";
+    return (char*)"cleared";
 }
 void configure_clear_callbacks(OpenAiInterface *openAi,const char *model){
     OpenAiCallback *callback = new_OpenAiCallback(agent_clear, (void*)model, "clear", "clear the screen", false);

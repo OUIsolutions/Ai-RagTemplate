@@ -30,8 +30,11 @@ end
 function local_linux_build()
 
     create_objects_ar()
-
-    local compilation =COMPILER.." -o "..PROJECT_NAME .." src/main.c libs/doTheWorld.o libs/BearHttpsClient.o libs/CArgvParse.o "
+    local compiler = "gcc"
+    if LAUNGUAGE == "cpp" then
+        compiler = "g++"
+    end
+    local compilation =compiler.." -o "..PROJECT_NAME .." src/main.c libs/doTheWorld.o libs/BearHttpsClient.o libs/CArgvParse.o "
     print("compilation: ", compilation)
     os.execute(compilation)
    

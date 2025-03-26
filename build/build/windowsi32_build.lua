@@ -23,6 +23,6 @@ function windowsi32_build()
             { "./src",     "/src" },
             { "./dependencies",     "/dependencies" }
         },
-        command = compiler.."--static -DDEFINE_DEPENDENCIES  /src/main.c -o /release/windowsi32.exe -lws2_32"
+        command = compiler.." --static -DDEFINE_DEPENDENCIES  /src/main.c -o /release/windowsi32.exe -lws2_32"
     })
 end
