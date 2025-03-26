@@ -9,7 +9,7 @@ function amalgamation_build()
     local runtime = darwin.camalgamator.generate_amalgamation("src/main.c")
     runtime = "#define DEFINE_DEPENDENCIES\n" .. runtime
   
-    darwin.dtw.write_file("release/"..PROJECT_NAME.." .c", runtime)
+    darwin.dtw.write_file("release/"..PROJECT_NAME..".c", runtime)
 
 
 
