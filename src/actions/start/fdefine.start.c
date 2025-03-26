@@ -54,7 +54,7 @@ int start_action(){
 
 
     while (true){
-        printf("%s > %s:%s", GREEN, props->model,PURPLE);
+        printf("%s > YOUR MENSSAGE:%s", GREEN,PURPLE);
         char *message = colect_user_imput();
 
         if(strcmp(message,"exit") == 0){
