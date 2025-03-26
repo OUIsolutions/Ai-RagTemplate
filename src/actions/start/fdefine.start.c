@@ -75,9 +75,8 @@ int start_action(){
         openai.openai_interface.add_response_to_history(openAi, response,0);
 
     }  
-    cJSON_Delete(rules);
 
-    //printf("data collected: %s\n", cJSON_Print(openAi->messages));
+    cJSON_Delete(rules);
     openai.openai_interface.free(openAi);
     freeModelProps(props);
 
