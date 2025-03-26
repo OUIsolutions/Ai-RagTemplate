@@ -31,5 +31,5 @@ int list_model(){
         }
         printf("\n");
     }
-
+    return 0;
 }

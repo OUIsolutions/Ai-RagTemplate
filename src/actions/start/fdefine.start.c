@@ -45,7 +45,7 @@ int start_action(){
 
 
     size_t size_buffer = REG_BUFFER_SIZE - 1;
-    char *buffer = BearsslHttps_allocate(REG_BUFFER_SIZE);
+    char *buffer = (char*)malloc(REG_BUFFER_SIZE);
     short response_buffer_input = REG_CHAT_RESPONSE_BUFFER_OK;
 
     while (true){

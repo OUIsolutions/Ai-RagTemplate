@@ -105,7 +105,7 @@ char *agent_write_file(cJSON *args, void *pointer){
     }
     dtw.write_string_file_content(path->valuestring, content->valuestring);
     printf("%s AI WROTE: %s\n",YELLOW, path->valuestring, RESET);
-    return "file wrotted";
+    return (char*)"file wrotted";
 }
 
 void configure_write_file_callbacks(OpenAiInterface *openAi){
@@ -140,7 +140,7 @@ char *agent_remove_file(cJSON *args, void *pointer){
     }
     dtw.remove_any(path->valuestring);
     printf("%s AI REMOVED: %s\n",YELLOW, path->valuestring, RESET);
-    return "file or directory removed";
+    return (char*)"file or directory removed";
 }
 
 void configure_remove_file_callbacks(OpenAiInterface *openAi){

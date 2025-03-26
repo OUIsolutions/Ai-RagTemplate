@@ -10,7 +10,7 @@ short Reg_init_chat(char *buffer, size_t size_max_buffer, const char *initial_ca
 
   memset(buffer, 0, size_max_buffer);
   long size_buffer_temp = size_max_buffer + 1;
-  char *buffer_temp = BearsslHttps_allocate(size_buffer_temp);
+  char *buffer_temp = (char*)malloc(size_buffer_temp);
   if(!buffer_temp){
     return REG_CHAT_RESPONSE_ERROR_ALOCATED;
   }
