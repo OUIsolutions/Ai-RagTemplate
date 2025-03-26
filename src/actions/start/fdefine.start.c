@@ -76,6 +76,7 @@ int start_action(){
 
     }  
 
+    free(buffer);
     cJSON_Delete(rules);
     openai.openai_interface.free(openAi);
     freeModelProps(props);

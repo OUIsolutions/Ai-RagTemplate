@@ -38,7 +38,7 @@ void configure_read_asset_callbacks(OpenAiInterface *openAi,const char *model){
     OpenAiInterface_add_parameters_in_callback(callback, "doc", "Pass the name of doc you want to read.", "string", true);
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 
-
+    free(message);
     dtw.string_array.free(all_assets);
     free(assets_printed);
     cJSON_Delete(assets_json);
