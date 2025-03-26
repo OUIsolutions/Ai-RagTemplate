@@ -34,7 +34,15 @@ int start_action(){
     
     
     Asset * main_system_rules = get_asset("system_instructions.json");
+    if(!main_system_rules){
+      printf("%sError: %s%s\n", RED, "No system instructions found", RESET);
+      return 1;
+    }
     cJSON *rules = cJSON_Parse((char*)main_system_rules->data);
+    if(!rules){
+      printf("%sError: %s%s\n", RED, "No system instructions found", RESET);
+      return 1;
+    }
     int size = cJSON_GetArraySize(rules);
 
     for(int i = 0; i <size;i++){
