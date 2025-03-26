@@ -23,7 +23,7 @@ char *agent_get_ai_chosen_asset(cJSON *args, void *pointer){
 }
 
 
-void configure_read_asset_callbacks(OpenAiInterface *openAi){
+void configure_read_asset_callbacks(OpenAiInterface *openAi,const char *model){
     cJSON *assets_json = cJSON_CreateArray();
     DtwStringArray *all_assets = list_assets_recursively("docs");
     for(int i = 0; i < all_assets->size; i++){
@@ -34,7 +34,7 @@ void configure_read_asset_callbacks(OpenAiInterface *openAi){
     sprintf(message, "The following docs are available: %s", assets_printed);
             
     openai.openai_interface.add_system_prompt(openAi,message);
-    OpenAiCallback *callback = new_OpenAiCallback(agent_get_ai_chosen_asset, NULL, "get_doc", "get a documentation text", false);
+    OpenAiCallback *callback = new_OpenAiCallback(agent_get_ai_chosen_asset, mmodel, "get_doc", "get a documentation text", false);
     OpenAiInterface_add_parameters_in_callback(callback, "doc", "Pass the name of doc you want to read.", "string", true);
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 
@@ -74,8 +74,8 @@ char *agent_list_recursively(cJSON *args, void *pointer){
 
 
 
-void configure_list_recursively_callbacks(OpenAiInterface *openAi){
-    OpenAiCallback *callback = new_OpenAiCallback(agent_list_recursively, NULL, "list_recursively", "list all files recursively in a path", false);
+void configure_list_recursively_callbacks(OpenAiInterface *openAi,const char *model){
+    OpenAiCallback *callback = new_OpenAiCallback(agent_list_recursively, model, "list_recursively", "list all files recursively in a path", false);
     OpenAiInterface_add_parameters_in_callback(callback, "path", "Pass the path you want to list recursively.", "string", true);
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 }
@@ -90,8 +90,8 @@ char *agent_read_file(cJSON *args, void *pointer){
     return content;
 }
 
-void configure_read_file_callbacks(OpenAiInterface *openAi){
-    OpenAiCallback *callback = new_OpenAiCallback(agent_read_file, NULL, "read_file", "read a file content", false);
+void configure_read_file_callbacks(OpenAiInterface *openAi,const char *model){
+    OpenAiCallback *callback = new_OpenAiCallback(agent_read_file, model, "read_file", "read a file content", false);
     OpenAiInterface_add_parameters_in_callback(callback, "path", "Pass the path you want to read.", "string", true);
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 }
@@ -127,8 +127,8 @@ char *agent_execute_command(cJSON *args, void *pointer){
     return result_str;
 }
 
-void configure_execute_command_callbacks(OpenAiInterface *openAi){
-    OpenAiCallback *callback = new_OpenAiCallback(agent_execute_command, NULL, "execute_command", "execute a command", false);
+void configure_execute_command_callbacks(OpenAiInterface *openAi,const char *model){
+    OpenAiCallback *callback = new_OpenAiCallback(agent_execute_command, model, "execute_command", "execute a command", false);
     OpenAiInterface_add_parameters_in_callback(callback, "command", "Pass the command you want to execute.", "string", true);
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 }
@@ -143,8 +143,8 @@ char *agent_remove_file(cJSON *args, void *pointer){
     return "file or directory removed";
 }
 
-void configure_remove_file_callbacks(OpenAiInterface *openAi){
-    OpenAiCallback *callback = new_OpenAiCallback(agent_remove_file, NULL, "remove_file", "remove a file or directory", false);
+void configure_remove_file_callbacks(OpenAiInterface *openAi,const char *model){
+    OpenAiCallback *callback = new_OpenAiCallback(agent_remove_file, model, "remove_file", "remove a file or directory", false);
     OpenAiInterface_add_parameters_in_callback(callback, "path", "Pass the path you want to remove.", "string", true);
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 }
