@@ -28,7 +28,7 @@ int start_action(){
     
     
     Asset * main_system_rules = get_asset("system_instructions.json");
-    cJSON *rules = cJSON_Parse(main_system_rules->data);
+    cJSON *rules = cJSON_Parse((char*)main_system_rules->data);
     int size = cJSON_GetArraySize(rules);
 
     for(int i = 0; i <size;i++){

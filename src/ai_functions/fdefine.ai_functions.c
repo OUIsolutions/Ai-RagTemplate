@@ -30,7 +30,7 @@ void configure_read_asset_callbacks(OpenAiInterface *openAi){
         cJSON_AddItemToArray(assets_json, cJSON_CreateString(all_assets->strings[i]));
     }
     char *assets_printed = cJSON_PrintUnformatted(assets_json);
-    char *message = malloc(strlen(assets_printed) + 100);
+    char *message = (char*)malloc(strlen(assets_printed) + 100);
     sprintf(message, "The following docs are available: %s", assets_printed);
             
     openai.openai_interface.add_system_prompt(openAi,message);
@@ -122,7 +122,7 @@ char *agent_execute_command(cJSON *args, void *pointer){
     }
     int result = system(command->valuestring);
     printf("%s AI EXECUTED COMMAND: %s\n",YELLOW, command->valuestring, RESET);
-    char *result_str = malloc(20);
+    char *result_str = (char*)malloc(20);
     sprintf(result_str, "%d", result);
     return result_str;
 }
