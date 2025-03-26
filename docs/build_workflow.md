@@ -1,4 +1,3 @@
-
 ### Build Workflow
 ### IMPORTANT:
 ### For understand these part, read [build_instructions.md](assets/docs/build_instructions.md) and [build_toolchain.md](/assets/docs/build_toolchain.md) first
@@ -8,10 +7,9 @@
   - if its to test a countainer , creates and launch that container and end build
 
 - creates the encryption key (basicly its creates a file called **src/macros.encrypt_key.h** ) containing 
-  a macro called **AiRagTemplate_get_key** that its used to get the encryption key 
+  a macro called **Ragcraft_get_key** that its used to get the encryption key 
   check [key_obfuscate](https://github.com/OUIsolutions/key_obfuscate) for more details
   
-
 - Installs the dependencies
 - create the assets embed vars [Assets docs](/assets/docs/assets_embed_vars.md)
 - make silver chain src organization read [build_toolchain.md](/assets/docs/build_toolchain.md) for more details
@@ -20,10 +18,10 @@
 
 ### Build Functions
 
-- [amalgamation_build](/build/build/amalgamation_build.lua) generate te **release/AiRagTemplate .c** file that contains all the source code of the project
-- [alpine_static_build.lua](/build/build/alpine_static_build.lua) build the project using alpine linux and static linking and generates the **release/AiRagTemplate.out** binary
-- [debian_static_build.lua](/build/build/debian_static_build.lua) build the **release/AiRagTemplate.deb** package
-- [local_linux_build.lua](/build/build/local_linux_build.lua) build the project using the local linux and generates the **AiRagTemplate** binary in the root folder of the project
-- [rpm_static_build.lua](/build/build/rpm_static_build.lua) build the **release/AiRagTemplate.rpm** package
-- [windows64_build.lua](/build/build/windows64_build.lua) build the project using windows 64bits and generates the **release/AiRagTemplate64.exe** binary
-- [windowsi32_build.lua](/build/build/windowsi32_build.lua) build the project using windows 32bits and generates the **release/AiRagTemplatei32.exe** binary
+- [amalgamation_build](/build/build/amalgamation_build.lua) generate te **release/Ragcraft .c** file that contains all the source code of the project
+- [alpine_static_build.lua](/build/build/alpine_static_build.lua) build the project using alpine linux and static linking and generates the **release/Ragcraft.out** binary
+- [debian_static_build.lua](/build/build/debian_static_build.lua) build the **release/Ragcraft.deb** package
+- [local_linux_build.lua](/build/build/local_linux_build.lua) build the project using the local linux and generates the **Ragcraft** binary in the root folder of the project
+- [rpm_static_build.lua](/build/build/rpm_static_build.lua) build the **release/Ragcraft.rpm** package
+- [windows64_build.lua](/build/build/windows64_build.lua) build the project using windows 64bits and generates the **release/Ragcraft64.exe** binary
+- [windowsi32_build.lua](/build/build/windowsi32_build.lua) build the project using windows 32bits and generates the **release/Ragcrafti32.exe** binary
