@@ -101,7 +101,7 @@ int start_action(){
         openai.openai_interface.add_response_to_history(openAi, response,0);
         free(message);
     }  
-
+    printf("%sGoodbye%s\n", BLUE, RESET);
     cJSON_Delete(rules);
     openai.openai_interface.free(openAi);
     freeModelProps(props);
