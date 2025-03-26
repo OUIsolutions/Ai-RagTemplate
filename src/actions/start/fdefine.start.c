@@ -64,7 +64,7 @@ int start_action(){
     configure_remove_file_callbacks(openAi,props->model);
 
     configure_terminate_callbacks(openAi,props->model);
-
+    printf("%sWelcome to the Ragcraft, runing: %s interface%s\n", BLUE,props->model , RESET);
     while (true){
         printf("%s > %s:%s", GREEN, props->model,PURPLE);
         char *message = collect_user_input();
