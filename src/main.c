@@ -32,7 +32,7 @@ int main(int argc, char  *argv[]){
     int result = -1;
  
     if(action == NULL){
-      printf("%sError: %s%s\n", RED, "No action provided", RESET);
+      printf("%sError: %s%s\n", RED, "No action provided (type --help to get help)", RESET);
       release_if_not_null(encryption_key,free);
       release_if_not_null(config_path,free);
       release_if_not_null(encryption,dtw.encryption.free);
@@ -65,7 +65,7 @@ int main(int argc, char  *argv[]){
       result = 0;
     }
     
-    if(strcmp(action, "--version") == 0 || args.is_flags_present(&args_obj, version_flags, version_size)){
+    if(strcmp(action, VERSION_ACTION) == 0 || args.is_flags_present(&args_obj, version_flags, version_size)){
         printf("Version: %s\n", VERSION);
         result = 0;
     }

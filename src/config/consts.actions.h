@@ -13,3 +13,4 @@ const char *RESSET = "resset";
 const char *LIST_MODEL = "list_models";
 const char *REMOVE_MODEL = "remove_model";
 const char *SET_MODEL_AS_DEFAULT = "set_default_model";
+const char *VERSION_ACTION = "version";
