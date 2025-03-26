@@ -4,9 +4,9 @@ function create_objects_ar()
 
     os.execute("mkdir -p libs")
     local itens = {
-      {command="gcc -c dependencies/doTheWorld.c -o libs/doTheWorld.o",path="dependencies/doTheWorld.c"},
-    {command="gcc -c dependencies/BearHttpsClient.c -o libs/BearHttpsClient.o -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE",path="dependencies/BearHttpsClient.c"},
-    {command="gcc -c dependencies/CArgvParse.c -o libs/CArgvParse.o",path="dependencies/CArgvParse.c"},
+      {command=COMPILER.." -c dependencies/doTheWorld.c -o libs/doTheWorld.o",path="dependencies/doTheWorld.c"},
+    {command=COMPILER.." -c dependencies/BearHttpsClient.c -o libs/BearHttpsClient.o -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE",path="dependencies/BearHttpsClient.c"},
+    {command=COMPILER.." -c dependencies/CArgvParse.c -o libs/CArgvParse.o",path="dependencies/CArgvParse.c"},
     }
 
     for _, item in ipairs(itens) do
@@ -28,7 +28,7 @@ function local_linux_build()
 
     create_objects_ar()
 
-    local compilation ="gcc -o "..PROJECT_NAME .." src/main.c libs/doTheWorld.o libs/BearHttpsClient.o libs/CArgvParse.o "
+    local compilation =COMPILER.." -o "..PROJECT_NAME .." src/main.c libs/doTheWorld.o libs/BearHttpsClient.o libs/CArgvParse.o "
     print("compilation: ", compilation)
     os.execute(compilation)
    

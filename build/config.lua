@@ -8,3 +8,5 @@ FULLNAME     = "RagCraft"
 EMAIL        = "mateusmoutinho01@gmail.com"
 SUMARY       = "A Rag Based Template for C"
 YOUR_CHANGES = "--"
+
+COMPILER     = "gcc"
