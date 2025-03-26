@@ -8,7 +8,9 @@ function cache_execution(entries,executor,side_efect_verifier)
     local side_effect_sha = darwin.dtw.load_file(".cacherag/"..entries_sha)
     if side_effect_sha then
         local side_effect_verification = side_efect_verifier()
-        if side_effect_sha == side_effect_verification then
+
+
+        if side_effect_sha == side_effect_verification and side_effect_verification then
             print("cached: ",entreis_data)
             return
         end

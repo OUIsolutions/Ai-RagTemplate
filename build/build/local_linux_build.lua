@@ -7,9 +7,9 @@ function create_objects_ar()
     end
     os.execute("mkdir -p libs")
     local itens = {
-      {command=compiler.." -c dependencies/doTheWorld.c -o libs/doTheWorld.o",path="dependencies/doTheWorld.c"},
-    {command=compiler.." -c dependencies/BearHttpsClient.c -o libs/BearHttpsClient.o -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE",path="dependencies/BearHttpsClient.c"},
-    {command=compiler.." -c dependencies/CArgvParse.c -o libs/CArgvParse.o",path="dependencies/CArgvParse.c"},
+      {command=compiler.." -c dependencies/doTheWorld.c -o libs/doTheWorld.o",entrie_path="dependencies/doTheWorld.c",out_path="libs/doTheWorld.o"},
+    {command=compiler.." -c dependencies/BearHttpsClient.c -o libs/BearHttpsClient.o -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE",entrie_path="dependencies/BearHttpsClient.c",out_path="libs/BearHttpsClient.o"},
+    {command=compiler.." -c dependencies/CArgvParse.c -o libs/CArgvParse.o",entrie_path="dependencies/CArgvParse.c",out_path="libs/CArgvParse.o"},
     }
 
     for _, item in ipairs(itens) do
@@ -17,12 +17,12 @@ function create_objects_ar()
         local executor = function()
             os.execute(item.command)
         end
-        local side_effect_verifier = function()
-            return darwin.dtw.generate_sha_from_file(item.path)
+        local side_effect_verifier = function()            
+            return darwin.dtw.generate_sha_from_file(item.out_path)
         end
 
-        local sha =darwin.dtw.generate_sha_from_file(item.path)
-        cache_execution({ "create .o object", item.path, item.command ,sha}, executor, side_effect_verifier)
+        local sha =darwin.dtw.generate_sha_from_file(item.entrie_path)
+        cache_execution({ "create .o object", item.entrie_path,item.out_path, item.command ,sha}, executor, side_effect_verifier)
     end
 
 
