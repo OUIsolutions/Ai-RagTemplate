@@ -17,12 +17,12 @@ Ragcraft itself release, can help you to understand the project, if you want ace
 
 | File | Description |
 | --- | --- |
-|[RagCraft.c](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCraft.c)| final Amalgamation of the project |
-|[RagCraft.deb](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCraft.deb)| Debian Package |
-|[RagCraft.rpm](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCraft.rpm)| RPM Package |
-|[RagCraft.out](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCraft.out)| Linux Executable file |
-|[RagCraft64.exe](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCraft64.exe)| Windows 64 bit Executable file |
-|[RagCrafti32.exe](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCrafti32.exe)| Windows 32 bit Executable file |
+|[RagCraft.c](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.2/RagCraft.c)| final Amalgamation of the project |
+|[RagCraft.deb](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.2/RagCraft.deb)| Debian Package |
+|[RagCraft.rpm](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.2/RagCraft.rpm)| RPM Package |
+|[RagCraft.out](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.2/RagCraft.out)| Linux Executable file |
+|[RagCraft64.exe](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.2/RagCraft64.exe)| Windows 64 bit Executable file |
+|[RagCrafti32.exe](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.2/RagCrafti32.exe)| Windows 32 bit Executable file |
 
 ## Docs 
 | File | Description |
