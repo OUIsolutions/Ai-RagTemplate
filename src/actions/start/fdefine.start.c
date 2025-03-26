@@ -36,12 +36,12 @@ int start_action(){
       openai.openai_interface.add_system_prompt(openAi,cJSON_GetStringValue(current_rule));
     }
     
-    configure_read_asset_callbacks(openAi);
-    configure_list_recursively_callbacks(openAi);
-    configure_read_file_callbacks(openAi);
-    configure_write_file_callbacks(openAi);
-    configure_execute_command_callbacks(openAi);
-    configure_remove_file_callbacks(openAi);
+    configure_read_asset_callbacks(openAi,props->model);
+    configure_list_recursively_callbacks(openAi,props->model);
+    configure_read_file_callbacks(openAi,props->model);
+    configure_write_file_callbacks(openAi, props->model);
+    configure_execute_command_callbacks(openAi,props->model);
+    configure_remove_file_callbacks(openAi,props->model);
 
 
     size_t size_buffer = REG_BUFFER_SIZE - 1;
