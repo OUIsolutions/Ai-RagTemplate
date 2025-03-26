@@ -5,7 +5,6 @@
 #include "../../imports/imports.globals.h"
 //silver_chain_scope_end
 
-
 char * collect_user_input(){
   char *buffer = (char*)malloc(100);
   int buffer_size = 100;
@@ -19,13 +18,17 @@ char * collect_user_input(){
       break;
     }
 
+    if(i >= buffer_size - 1){
+      buffer_size *= 2;
+      buffer = (char*)realloc(buffer, buffer_size);
+    }
+
     buffer[i] = c;
     last_char = c;
     i++;
   }
   return buffer;
 }
-
 
 int start_action(){
     
