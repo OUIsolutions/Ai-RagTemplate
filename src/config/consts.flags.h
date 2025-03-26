@@ -31,3 +31,10 @@ const char *key_flags[] ={
 };
 
 int key_size = 2;
+
+const char *version_flags[] ={
+    "version",
+    "v"
+};
+
+int version_size = 2;

@@ -6,7 +6,6 @@
 //silver_chain_scope_end
 
 
-
 int main(int argc, char  *argv[]){
     start_namespace();
     args_obj  = args.newCArgvParse(argc, argv);
@@ -64,6 +63,11 @@ int main(int argc, char  *argv[]){
 
       printf("%s%s%s\n", BLUE,(char*)help->data, RESET);
       result = 0;
+    }
+    
+    if(strcmp(action, "--version") == 0 || args.is_flags_present(&args_obj, version_flags, version_size)){
+        printf("Version: %s\n", VERSION);
+        result = 0;
     }
     
     if(result == -1){
