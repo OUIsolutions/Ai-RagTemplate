@@ -12,13 +12,16 @@ function windowsi64_build()
     image.provider = CONTANIZER
     image.add_comptime_command("apt-get update")
     image.add_comptime_command("apt-get -y install mingw-w64")
-
+    local compiler = "x86_64-w64-mingw32-gcc"
+    if LAUNGUAGE == "cpp" then
+        compiler = "x86_64-w64-mingw32-g++"
+    end
     image.start({
         volumes = {
             { "./release", "/release" },
             { "./src",     "/src" },
             { "./dependencies",     "/dependencies" }
         },
-        command = "x86_64-w64-mingw32-gcc --static -DDEFINE_DEPENDENCIES  /src/main.c -o /release/windows64.exe -lws2_32"
+        command = compiler.."--static -DDEFINE_DEPENDENCIES  /src/main.c -o /release/windows64.exe -lws2_32"
     })
 end

@@ -1,12 +1,15 @@
 
 
 function create_objects_ar()
-
+    local compiler = "gcc"
+    if LAUNGUAGE == "cpp" then
+        compiler = "g++"
+    end
     os.execute("mkdir -p libs")
     local itens = {
-      {command=COMPILER.." -c dependencies/doTheWorld.c -o libs/doTheWorld.o",path="dependencies/doTheWorld.c"},
-    {command=COMPILER.." -c dependencies/BearHttpsClient.c -o libs/BearHttpsClient.o -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE",path="dependencies/BearHttpsClient.c"},
-    {command=COMPILER.." -c dependencies/CArgvParse.c -o libs/CArgvParse.o",path="dependencies/CArgvParse.c"},
+      {command=compiler.." -c dependencies/doTheWorld.c -o libs/doTheWorld.o",path="dependencies/doTheWorld.c"},
+    {command=compiler.." -c dependencies/BearHttpsClient.c -o libs/BearHttpsClient.o -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE",path="dependencies/BearHttpsClient.c"},
+    {command=compiler.." -c dependencies/CArgvParse.c -o libs/CArgvParse.o",path="dependencies/CArgvParse.c"},
     }
 
     for _, item in ipairs(itens) do

@@ -11,7 +11,11 @@ function alpine_static_build()
     local image = darwin.ship.create_machine("alpine:latest")
     image.provider = CONTANIZER
     image.add_comptime_command("apk update")
-    image.add_comptime_command("apk add --no-cache gcc musl-dev curl")
+    image.add_comptime_command("apk add --no-cache gcc g++ musl-dev curl")
+    local compiler = "gcc"
+    if LAUNGUAGE == "cpp" then
+        compiler = "g++"
+    end
 
     image.start({
         volumes = {
@@ -20,7 +24,7 @@ function alpine_static_build()
             { "./dependencies",  "/dependencies" }
 
         },
-        command = COMPILER.." --static /src/main.c -DDEFINE_DEPENDENCIES -o /release/alpine_static_bin.out"
+        command = compiler.." --static /src/main.c -DDEFINE_DEPENDENCIES -o /release/alpine_static_bin.out"
 
     })
 end
