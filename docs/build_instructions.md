@@ -34,6 +34,22 @@ Output files:
 - release/AiRagTemplate.out
 - release/AiRagTemplate.rpm
 
+### Build Configurations
+All build configurations are in the **build/config.lua** file.
+the default its: 
+```lua
+PROJECT_NAME = "AiRagTemplate"
+CONTANIZER   = "podman"
+VERSION      = "0.0.9"
+LICENSE      = "MIT"
+URL          = "https://github.com/OUIsolutions/Ai-RagTemplate"
+DESCRIPITION = "A Rag Based Template for C"
+FULLNAME     = "Ai-RagTemplate"
+EMAIL        = "mateusmoutinho01@gmail.com"
+SUMARY       = "A Rag Based Template for C"
+YOUR_CHANGES = "--"
+```
+
 
 ### Making your own build
 you can make your own build by using the following commands:
@@ -56,21 +72,6 @@ gcc src/main.c -o my_executable BearHttpsClient.o doTheWorld.o CArgvParse.o
 ```
 
 
-### Build Configurations
-All build configurations are in the **build/config.lua** file.
-the default its: 
-```lua
-PROJECT_NAME = "AiRagTemplate"
-CONTANIZER   = "podman"
-VERSION      = "0.0.9"
-LICENSE      = "MIT"
-URL          = "https://github.com/OUIsolutions/Ai-RagTemplate"
-DESCRIPITION = "A Rag Based Template for C"
-FULLNAME     = "Ai-RagTemplate"
-EMAIL        = "mateusmoutinho01@gmail.com"
-SUMARY       = "A Rag Based Template for C"
-YOUR_CHANGES = "--"
-```
 
 ### Testing Releases
 you can launch a container to test your releases with the following command:
