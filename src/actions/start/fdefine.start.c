@@ -57,7 +57,7 @@ int start_action(){
     configure_execute_command_callbacks(openAi,props->model);
     configure_remove_file_callbacks(openAi,props->model);
 
-
+    configure_terminate_callbacks(openAi,props->model);
 
     while (true){
         printf("%s > %s:%s", GREEN, props->model,PURPLE);

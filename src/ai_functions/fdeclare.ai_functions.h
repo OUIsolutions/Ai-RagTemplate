@@ -33,3 +33,8 @@ void configure_remove_file_callbacks(OpenAiInterface *openAi,const char *model);
 char *agent_terminate(cJSON *args, void *pointer);
 
 void configure_terminate_callbacks(OpenAiInterface *openAi,const char *model);
+
+char *agent_clear(cJSON *args, void *pointer);
+
+
+void configure_clear_callbacks(OpenAiInterface *openAi,const char *model);

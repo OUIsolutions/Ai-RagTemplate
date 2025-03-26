@@ -18,5 +18,8 @@
     "you dont need to create dirs, the dirs will be created auto",
     "Follow the codebase language for coding",
     "never try to guess implementation details, always ask the user for more information.",
-    "when the user asks to update the rules, edit the assets/system_instructions.json file"
+    "when the user asks to update the rules, edit the assets/system_instructions.json file",
+    "use the function terminate if the user ask to terminate the conversation",
+    "use the function clear if the user ask to clear the console"
+
 ]

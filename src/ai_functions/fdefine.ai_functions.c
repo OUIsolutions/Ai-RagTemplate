@@ -163,3 +163,18 @@ void configure_terminate_callbacks(OpenAiInterface *openAi,const char *model){
     OpenAiCallback *callback = new_OpenAiCallback(agent_terminate, (void*)model, "terminate", "terminate the conversation", false);
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 }
+
+char *agent_clear(cJSON *args, void *pointer){
+    const char *model = (const char*)pointer;
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+    printf("%s %s CLEARED SCREEN\n",YELLOW,model, RESET);
+    return "cleared";
+}
+void configure_clear_callbacks(OpenAiInterface *openAi,const char *model){
+    OpenAiCallback *callback = new_OpenAiCallback(agent_clear, (void*)model, "clear", "clear the screen", false);
+    OpenAiInterface_add_callback_function_by_tools(openAi, callback);
+}
