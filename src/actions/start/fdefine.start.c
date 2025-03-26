@@ -55,7 +55,10 @@ int start_action(){
       cJSON *current_rule = cJSON_GetArrayItem(rules,i);
       openai.openai_interface.add_system_prompt(openAi,cJSON_GetStringValue(current_rule));
     }
+    char name_message[100];
+    snprintf(name_message,sizeof(name_message)-1,"your model base  its %s",props->model);
 
+    openai.openai_interface.add_system_prompt(openAi,name_message);
     configure_read_asset_callbacks(openAi,props->model);
     configure_list_recursively_callbacks(openAi,props->model);
     configure_read_file_callbacks(openAi,props->model);
