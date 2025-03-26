@@ -18,6 +18,7 @@ char * collect_user_input(){
       buffer[i] = '\0';
       break;
     }
+
     buffer[i] = c;
     last_char = c;
     i++;
