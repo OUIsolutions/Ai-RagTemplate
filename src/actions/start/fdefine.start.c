@@ -6,15 +6,21 @@
 //silver_chain_scope_end
 
 
-void colect_user_imput(char *input,int max_size){
-  for(int i = 0; i < max_size; i++){
+char * colect_user_imput(){
+  char *buffer = (char*)malloc(100);
+  int buffer_size = 100;
+  int i = 0;
+  while(true){
+
     char c = getchar();
     if(c == '\n'){
-      input[i] = '\0';
+      buffer[i] = '\0';
       break;
     }
-    input[i] = c;
+    buffer[i] = c;
+    i++;
   }
+  return buffer;
 }
 
 
@@ -45,20 +51,24 @@ int start_action(){
 
 
     size_t size_buffer = REG_BUFFER_SIZE - 1;
-    char *buffer = (char*)malloc(REG_BUFFER_SIZE);
-    short response_buffer_input = REG_CHAT_RESPONSE_BUFFER_OK;
+
 
     while (true){
+        printf("%s > %s:%s", GREEN, props->model,PURPLE);
+        char *message = colect_user_imput();
 
-        response_buffer_input = Reg_init_chat(buffer, size_buffer, " Your message > ");
-        if(response_buffer_input != REG_CHAT_RESPONSE_BUFFER_OK){
-            const char *message = Reg_chat_returned_handling(response_buffer_input);
-            if(message){
-                printf("\n\tErro:. %s\n", message);
-            }
-            break;
+        if(strcmp(message,"exit") == 0){
+          break;
         }
-        openai.openai_interface.add_user_prompt(openAi, buffer);
+        if(strcmp(message,"clear") == 0){
+          #ifdef _WIN32
+            system("cls");
+          #else
+            system("clear");
+          #endif
+          continue;
+        }
+        openai.openai_interface.add_user_prompt(openAi, message);
 
         OpenAiResponse *response =  OpenAiInterface_make_question_finish_reason_treated(openAi);
         if(openai.openai_interface.error(response)){
@@ -68,13 +78,14 @@ int start_action(){
         const char *first_answer = openai.response.get_content_str(response,0);
         if(first_answer == NULL){
           printf("%sError: %s%s\n", RED, "No answer found", RESET);
+          free(message);
           break;
         }
-        printf("%s < %s: %s%s\n", GREEN,props->model, first_answer, RESET);
+        printf("%s < %s: %s%s\n", BLUE,props->model, first_answer, RESET);
         openai.openai_interface.add_response_to_history(openAi, response,0);
+        free(message);
     }  
 
-    free(buffer);
     cJSON_Delete(rules);
     openai.openai_interface.free(openAi);
     freeModelProps(props);
