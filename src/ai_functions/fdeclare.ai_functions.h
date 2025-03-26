@@ -29,3 +29,7 @@ void configure_execute_command_callbacks(OpenAiInterface *openAi,const char *mod
 char *agent_remove_file(cJSON *args, void *pointer);
 
 void configure_remove_file_callbacks(OpenAiInterface *openAi,const char *model);
+
+char *agent_terminate(cJSON *args, void *pointer);
+
+void configure_terminate_callbacks(OpenAiInterface *openAi,const char *model);
