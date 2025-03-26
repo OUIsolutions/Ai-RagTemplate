@@ -12,6 +12,17 @@ This README was written by Grok with RagCraft, an AI model developed by xAI. Rag
 - **Encryption**: Secure storage of configuration files with encryption.
 
 
+## Testage Release
+Ragcraft itself release, can help you to understand the project, if you want acess [cli_usage.md](/docs/cli_usage.md) and learn how to use the template,by using the cli itself that it generates
+
+| File | Description |
+| --- | --- |
+|[RagCraft.c](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCraft.c)| final Amalgamation of the project |
+|[RagCraft.deb](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCraft.deb)| Debian Package |
+|[RagCraft.out](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCraft.out)| Linux Executable file |
+|[RagCraft.rpm](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCraft.rpm)| RPM Package |
+|[RagCraft64.exe](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCraft64.exe)| Windows 64 bit Executable file |
+|[RagCrafti32.exe](https://github.com/OUIsolutions/RagCraft/releases/download/0.0.1/RagCrafti32.exe)| Windows 32 bit Executable file |
 
 ## Docs 
 | File | Description |
