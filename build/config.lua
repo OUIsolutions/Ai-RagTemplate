@@ -9,4 +9,4 @@ EMAIL        = "mateusmoutinho01@gmail.com"
 SUMARY       = "A Rag Based Template for C"
 YOUR_CHANGES = "--"
 
-LAUNGUAGE     = "c"
+LAUNGUAGE     = "cpp"
