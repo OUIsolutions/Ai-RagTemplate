@@ -7,7 +7,7 @@ function Install_dependencies()
         { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/10.0.1/doTheWorld.h", path = "dependencies/doTheWorld.h" },
         { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/10.0.1/doTheWorld.c", path = "dependencies/doTheWorld.c" },
         { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.2.5/BearHttpsClient.h", path = "dependencies/BearHttpsClient.h" },
-        { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.2.504/BearHttpsClient.c", path = "dependencies/BearHttpsClient.c" },
+        { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.2.5/BearHttpsClient.c", path = "dependencies/BearHttpsClient.c" },
         { url = "https://github.com/OUIsolutions/C-argv-parser/releases/download/0.0.1/CArgvParse.h", path = "dependencies/CArgvParse.h" },
         { url = "https://github.com/OUIsolutions/C-argv-parser/releases/download/0.0.1/CArgvParse.c", path = "dependencies/CArgvParse.c" },
         { url = "https://github.com/SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI/releases/download/0.0.8/SDK_OpenAI.c", path = "dependencies/SDK_OpenAI.c" },
