@@ -20,7 +20,7 @@ function alpine_static_build()
             { "./dependencies",     "/dependencies" }
 
         },
-        command = "gcc --static /src/main.c -DDEFINE_DEPENDENCIES -o /release/alpine_static_bin.out"
+        command = COMPILER.." --static /src/main.c -DDEFINE_DEPENDENCIES -o /release/alpine_static_bin.out"
 
     })
 end
