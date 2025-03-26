@@ -1,7 +1,6 @@
-
 ### Json Model Config
 
-every time you call any action of the cli,it acess the config json
+every time you call any action of the cli,it access the config json
 the **config json** its a json that its encrypted and saved into the user home directory
 the config json its used to store the models, urls, and keys from the user,and its saved into these
 format:
@@ -37,5 +36,5 @@ printf("config path: %s\n",config_path);
 the json its encrypted on every save and decrypted on every read, the encryption its made by the functions
 **dtw.encryption.write_string_file_content_hex**  and **dtw.encryption.load_string_file_content_hex** on all the 
 [actions](/src/actions/) files.
-The global encryption object localized at [gobals](/src/globals.main_obj.c) its initialized in the beguining of the [main](/src/main.c) file, and uses the  **--encrypt_key** you pass on the buiild part, that its transformed on the 
+The global encryption object localized at [gobals](/src/globals.main_obj.c) its initialized in the beginning of the [main](/src/main.c) file, and uses the  **--encrypt_key** you pass on the build part, that its transformed on the 
 macro **AiRagTemplate_get_key**

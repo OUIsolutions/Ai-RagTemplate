@@ -1,9 +1,7 @@
-
 ## Cli Usage
 
-
 ### Configure a model
-For Configure a model, you just need need to call **AiRagTemplate** passing **configure_model** as first argument:
+For Configure a model, you just need to call **AiRagTemplate** passing **configure_model** as first argument:
 
 ```bash
 AiRagTemplate configure_model --model o3-mini  --url https://api.openai.com/v1/chat/completions --key  API_KEY
@@ -38,16 +36,16 @@ AiRagTemplate remove_model --model o3-mini
 ```
 
 ### Set model as Default 
-For set a model as default, you just need to call **AiRagTemplate** passing **set_default_model** as first argument:
+For set a model as default, you just need to call **AiRagTemplate** passing **set_model_as_default** as first argument:
 
 ```bash
-AiRagTemplate set_default_model --model o3-mini
+AiRagTemplate set_model_as_default --model o3-mini
 ```
 ### Resset Configuration
-For reset the configuration, you just need to call **AiRagTemplate** passing **reset** as first argument:
+For resset the configuration, you just need to call **AiRagTemplate** passing **resset** as first argument:
 
 ```bash
-AiRagTemplate reset
+AiRagTemplate resset
 ```
 
 ### Get Help
@@ -56,5 +54,3 @@ For get help, you just need to call **AiRagTemplate** passing **help** as first 
 ```bash
 AiRagTemplate help
 ```
-
-

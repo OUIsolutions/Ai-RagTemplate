@@ -1,22 +1,21 @@
-
 ### Build ToolChain Explanation
 ### IMPORTANT:
 ### For understand these part, read [Build Instructions](/docs/build_instructions.md) first
 
 
 The Build process use [darwin](https://github.com/OUIsolutions/Darwin) to build the project  in mode full folder, 
-witch means, it recursively list over the foder [Build Folder](/build/) and execute the code insided, starting 
+witch means, it recursively list over the folder [Build Folder](/build/) and execute the code inside, starting 
 by the [main.lua](/build/main.lua) file.
 
 the build code use the following dependencies:
 
 
 ### LuaArgv
-[LuaArgv](https://github.com/OUIsolutions/LuaArgv) ts a simple lib to parse argv, and its used to detect the build actions
+[LuaArgv](https://github.com/OUIsolutions/LuaArgv) is a simple lib to parse argv, and its used to detect the build actions
 
 ### LuaDotheWorld
 [LuaDoTheWorld](https://github.com/OUIsolutions/LuaDoTheWorld) its a wrapper of the original [DoTheWorld](https://github.com/OUIsolutions/LuaDoTheWorld) project, and [LuaDoTheWorld](https://github.com/OUIsolutions/LuaDoTheWorld) provides a series of 
-function, to manipulate files and dirs, like hashers, listages, read and write in files, etc.
+function, to manipulate files and directories, like hashers, listings, read and write in files, etc.
 
 ### LuaShip
 [LuaShip](https://github.com/OUIsolutions/LuaShip) its a Podman/Docker wrapper , that its used to create some releases such as:
@@ -118,22 +117,21 @@ check: [silverchain_organize.lua](/build/silver_chain_organize.lua) for see the 
 ### LuaCAmalgamator
 [LuaCAmalgamator](https://github.com/OUIsolutions/LuaCAmalgamator) its a wrapper of the original [CAmalgamator](https://github.com/OUIsolutions/CAmalgamator) project, and [LuaCAmalgamator](https://github.com/OUIsolutions/LuaCAmalgamator) its used to create a single file from the C files, this way, the code will be more organized, and the code will be more easy to read, and to maintain.
 
-chek [amalgamation_build.lua](/build/build/amalgamation_build.lua) fo see the amalgamation process:
+check [amalgamation_build.lua](/build/build/amalgamation_build.lua) for see the amalgamation process:
 
 ```lua
-local alreay_amalamated_done = false
+local already_amalgamated_done = false
 function amalgamation_build()
-    if alreay_amalamated_done then
+    if already_amalgamated_done then
         return
     end
-    alreay_amalamated_done = true
+    already_amalgamated_done = true
 
 
     local runtime = darwin.camalgamator.generate_amalgamation("src/main.c")
     runtime = "#define DEFINE_DEPENDENCIES\n" .. runtime
   
     darwin.dtw.write_file("release/"..PROJECT_NAME.." .c", runtime)
-
 
 
 end

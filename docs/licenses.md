@@ -79,7 +79,6 @@ SOFTWARE.
 BearSSL is a small, fast, portable, and embeddable implementation of the SSL/TLS protocol (including TLS 1.3) written in C. It is designed to be easy to understand, use, and integrate into your application. BearSSL is a free software project, and it is licensed under the MIT License.
 
 
-
   Copyright (c) 2016 Thomas Pornin <pornin@bolet.org>
  
   Permission is hereby granted, free of charge, to any person obtaining 
@@ -134,7 +133,7 @@ THE SOFTWARE.
 
 Lua is free software distributed under the terms of the MIT license reproduced here. Lua may be used for any purpose, including commercial purposes, at absolutely no cost. No paperwork, no royalties, no GNU-like "copyleft" restrictions, either. Just download it and use it.
 
-Lua is certified Open Source software. [Open Source Initiative Approved License]Its license is simple and liberal and is compatible with GPL. Lua is not in the public domain and PUC-Rio keeps its copyright.
+Lua is certified Open Source software. [Open Source Initiative Approved License]It's license is simple and liberal and is compatible with GPL. Lua is not in the public domain and PUC-Rio keeps its copyright.
 
 The spirit of the Lua license is that you are free to use Lua for any purpose at no cost without having to ask us. The only requirement is that if you do use Lua, then you should give us credit by including the copyright notice somewhere in your product or its documentation. A nice, but optional, way to give us further credit is to include a Lua logo and a link to our site in a web page for your product.
 

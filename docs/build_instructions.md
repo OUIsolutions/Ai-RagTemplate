@@ -1,4 +1,3 @@
-
 ## Build Instructions
 
 ### Build Requirements 
@@ -15,7 +14,7 @@ sudo mv darwin.out /usr/bin/darwin
 ### Local Build from Linux
 make a local build to test with the following command it will create the **AiRagTemplatetest.out** file
 ```bash
-darwin run_blueprint build/ --mode folder local_linux_build --encrypt_key "your_encryption key"
+darwin run_blueprint build/ --mode folder local_linux_build --encrypt_key "your_encryption_key"
 ```
 
 ### Full Build from Docker or Podman
@@ -23,7 +22,7 @@ You must have podman or docker installed on your machine to build in these way, 
 
 if you want to make a full build to all platforms you can use the following command, it will create the following files:
 ```bash
- darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windowsi64_build rpm_static_build debian_static_build -encrypt_key "your_encryption key"
+ darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windows64_build rpm_static_build debian_static_build -encrypt_key "your_encryption_key"
 ```
 
 Output files:
@@ -54,7 +53,7 @@ YOUR_CHANGES = "--"
 ### Making your own build
 you can make your own build by using the following commands:
 ```bash
-darwin run_blueprint build/ --mode folder --encrypt_key "your_encryption key" 
+darwin run_blueprint build/ --mode folder --encrypt_key "your_encryption_key" 
 ```
 
 than you can compile with gcc in the way you want:
@@ -72,10 +71,9 @@ gcc src/main.c -o my_executable BearHttpsClient.o doTheWorld.o CArgvParse.o
 ```
 
 
-
 ### Testing Releases
 you can launch a container to test your releases with the following command:
-these will launch a container with **distro_name** with the **reelease** folder mounted
+these will launch a container with **distro_name** with the **release** folder mounted
 ```bash
 darwin run_blueprint build/ --mode folder test_container distro_name
 ```

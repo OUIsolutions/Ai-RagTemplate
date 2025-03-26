@@ -4,9 +4,9 @@
 
 ### [main.lua](/build/main.lua)
 - verify if its to test a container 
-  - if its to test a countainer , creates and launch that container and end build
+  - if its to test a container , creates and launch that container and end build
 
-- creates the encryption key (basicly its creates a file called **src/macros.encrypt_key.h** ) containing 
+- creates the encryption key (basically its creates a file called **src/macros.encrypt_key.h** ) containing 
   a macro called **Ragcraft_get_key** that its used to get the encryption key 
   check [key_obfuscate](https://github.com/OUIsolutions/key_obfuscate) for more details
   
@@ -18,7 +18,7 @@
 
 ### Build Functions
 
-- [amalgamation_build](/build/build/amalgamation_build.lua) generate te **release/Ragcraft .c** file that contains all the source code of the project
+- [amalgamation_build](/build/build/amalgamation_build.lua) generate the **release/Ragcraft.c** file that contains all the source code of the project
 - [alpine_static_build.lua](/build/build/alpine_static_build.lua) build the project using alpine linux and static linking and generates the **release/Ragcraft.out** binary
 - [debian_static_build.lua](/build/build/debian_static_build.lua) build the **release/Ragcraft.deb** package
 - [local_linux_build.lua](/build/build/local_linux_build.lua) build the project using the local linux and generates the **Ragcraft** binary in the root folder of the project
