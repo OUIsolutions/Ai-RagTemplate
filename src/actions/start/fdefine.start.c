@@ -66,9 +66,10 @@ int start_action(){
     configure_terminate_callbacks(openAi,props->model);
     printf("%sWelcome to the Ragcraft, runing: %s interface%s\n", BLUE,props->model , RESET);
     while (true){
-        printf("%s > %s:%s", GREEN, props->model,PURPLE);
+        printf("%s >Your Message:%s", GREEN,PURPLE);
+       fflush(stdout);
         char *message = collect_user_input();
-
+        
         if(strcmp(message,"exit") == 0){
           break;
         }
