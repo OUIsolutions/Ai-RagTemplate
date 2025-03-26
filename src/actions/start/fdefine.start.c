@@ -5,21 +5,14 @@
 #include "../../imports/imports.globals.h"
 //silver_chain_scope_end
 
+
 char * colect_user_imput(){
-  char *buffer = (char*)malloc(1000);
+  char *buffer = (char*)malloc(100);
+  int buffer_size = 100;
   int i = 0;
-  bool escape_next = false;
   while(true){
+
     char c = getchar();
-    if(escape_next && c == '\n'){
-      buffer[i++] = c;
-      escape_next = false;
-      continue;
-    }
-    if(c == '\\'){
-      escape_next = true;
-      continue;
-    }
     if(c == '\n'){
       buffer[i] = '\0';
       break;
@@ -29,6 +22,7 @@ char * colect_user_imput(){
   }
   return buffer;
 }
+
 
 int start_action(){
     
@@ -56,11 +50,9 @@ int start_action(){
     configure_remove_file_callbacks(openAi,props->model);
 
 
-    size_t size_buffer = REG_BUFFER_SIZE - 1;
-
 
     while (true){
-        printf("%s > YOUR MENSSAGE:%s", GREEN,PURPLE);
+        printf("%s > %s:%s", GREEN, props->model,PURPLE);
         char *message = colect_user_imput();
 
         if(strcmp(message,"exit") == 0){
@@ -97,5 +89,4 @@ int start_action(){
     freeModelProps(props);
 
     return 0;
-
 }
