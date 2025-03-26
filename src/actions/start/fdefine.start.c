@@ -6,7 +6,7 @@
 //silver_chain_scope_end
 
 
-char * colect_user_imput(){
+char * collect_user_input(){
   char *buffer = (char*)malloc(100);
   int buffer_size = 100;
   int i = 0;
@@ -61,7 +61,7 @@ int start_action(){
 
     while (true){
         printf("%s > %s:%s", GREEN, props->model,PURPLE);
-        char *message = colect_user_imput();
+        char *message = collect_user_input();
 
         if(strcmp(message,"exit") == 0){
           break;
