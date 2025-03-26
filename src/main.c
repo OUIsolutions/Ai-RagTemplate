@@ -64,9 +64,9 @@ int main(int argc, char  *argv[]){
     }
     
     endmain:
-      release_if_not_null(encryption_key, free);
+      release_if_not_null(encryption_key,free);
       release_if_not_null(config_path,free);
-      release_if_not_null(encryption,(void*)(void*)dtw.encryption.free);
+      release_if_not_null(encryption,dtw.encryption.free);
       return result;
 
 }
