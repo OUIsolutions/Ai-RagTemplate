@@ -10,14 +10,16 @@ char * collect_user_input(){
   char *buffer = (char*)malloc(100);
   int buffer_size = 100;
   int i = 0;
+  char last_char = '\0';
   while(true){
 
     char c = getchar();
-    if(c == '\n'){
+    if(c == '\n' && last_char != '\\'){
       buffer[i] = '\0';
       break;
     }
     buffer[i] = c;
+    last_char = c;
     i++;
   }
   return buffer;
