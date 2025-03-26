@@ -10,25 +10,28 @@
 int main(int argc, char  *argv[]){
     start_namespace();
     args_obj  = args.newCArgvParse(argc, argv);
-
+    int result = -1;
+    
     unsigned char *encryption_key = (unsigned char*)malloc(RagCraftkey_size);
-    RagCraft_get_key(encryption_key);    
-    encryption = dtw.encryption.newAES_Custom_CBC_v1_interface((char*)encryption_key);
+    RagCraft_get_key(encryption_key);
 
+    encryption = dtw.encryption.newAES_Custom_CBC_v1_interface((char*)encryption_key);
+    if(encryption == NULL){
+      printf("%sError: %s%s\n", RED, "Invalid encryption key", RESET);
+      goto endmain;
+    }
 
     bool configured = create_user_config_models_path(encryption_key);
     if(!configured){
-        free(encryption_key);
-        return 1;
+      goto endmain;
     }
-    
-    free(encryption_key);
 
     const char *action = args.get_arg(&args_obj, 1);
-    int result = -1;
+ 
     if(action == NULL){
       printf("%sError: %s%s\n", RED, "No action provided", RESET);
       result = 1;
+      goto endmain;
     }
     if(strcmp(action, START) == 0){
       result = start_action();
@@ -60,9 +63,17 @@ int main(int argc, char  *argv[]){
       printf("%sError: %s%s\n", RED, "Invalid action", RESET);
       result = 1;
     }
-    //releasing global objects
-    free(config_path);
-    dtw.encryption.free(encryption);
-    return result;
+    
+    endmain:
+      if(encryption_key){
+        free(encryption_key);
+      }
+      if(config_path){
+        free(config_path);
+      }
+      if(encryption){
+        dtw.encryption.free(encryption);
+      }
+      return result;
 
 }
