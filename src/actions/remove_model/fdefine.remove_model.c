@@ -19,6 +19,7 @@ int remove_model(){
         return 1;
     }
     cJSON *parsed = get_parsed_json(model_json_content);
+    free(model_json_content);
     if(parsed == NULL){
         return 1;
     }
@@ -34,7 +35,9 @@ int remove_model(){
             found = true;
         }
     }
+
     if(!found){
+        cJSON_Delete(parsed);
         printf("%sError: Model not found%s\n", RED, RESET);
         return 1;
     }
