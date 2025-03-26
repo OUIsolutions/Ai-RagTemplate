@@ -42,6 +42,7 @@ int configure_model(){
     }
 
     cJSON *parsed = get_parsed_json(model_json_content);
+    free(model_json_content);
     if(parsed == NULL){
         return 1;
     }
