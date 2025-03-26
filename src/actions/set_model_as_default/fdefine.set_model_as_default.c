@@ -21,6 +21,7 @@ int set_model_as_default(){
     }
 
     cJSON *parsed = get_parsed_json(model_json_content);
+    free(model_json_content);
     if(parsed == NULL){
         return 1;
     }
@@ -46,6 +47,7 @@ int set_model_as_default(){
         }
     }
     if(!found){
+        cJSON_Delete(parsed);
         printf("%sError: Model not found%s\n", RED, RESET);
         return 1;
     }
