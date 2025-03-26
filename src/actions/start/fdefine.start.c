@@ -55,7 +55,7 @@ int start_action(){
       cJSON *current_rule = cJSON_GetArrayItem(rules,i);
       openai.openai_interface.add_system_prompt(openAi,cJSON_GetStringValue(current_rule));
     }
-    
+
     configure_read_asset_callbacks(openAi,props->model);
     configure_list_recursively_callbacks(openAi,props->model);
     configure_read_file_callbacks(openAi,props->model);
