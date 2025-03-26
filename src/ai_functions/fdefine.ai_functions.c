@@ -151,3 +151,15 @@ void configure_remove_file_callbacks(OpenAiInterface *openAi,const char *model){
     OpenAiInterface_add_parameters_in_callback(callback, "path", "Pass the path you want to remove.", "string", true);
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 }
+
+char *agent_terminate(cJSON *args, void *pointer){
+    const char *model = (const char*)pointer;
+    printf("%s %s TERMINATED CONVERSATION\n",YELLOW,model, RESET);
+    exit(0);
+    return NULL;
+}
+
+void configure_terminate_callbacks(OpenAiInterface *openAi,const char *model){
+    OpenAiCallback *callback = new_OpenAiCallback(agent_terminate, (void*)model, "terminate", "terminate the conversation", false);
+    OpenAiInterface_add_callback_function_by_tools(openAi, callback);
+}
