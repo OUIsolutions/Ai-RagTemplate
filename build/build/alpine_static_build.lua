@@ -17,7 +17,7 @@ function alpine_static_build()
         volumes = {
             { "./release", "/release" },
             { "./src",     "/src" },
-            { "./dependencies",     "/dependencies" }
+            { "./dependencies",  "/dependencies" }
 
         },
         command = COMPILER.." --static /src/main.c -DDEFINE_DEPENDENCIES -o /release/alpine_static_bin.out"
