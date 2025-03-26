@@ -18,5 +18,4 @@
     "Follow the codebase language for coding",
     "never try to guess implementation details, always ask the user for more information.",
     "when the user asks to update the rules, edit the assets/system_instructions.json file",
-    "respond in English"
 ]
