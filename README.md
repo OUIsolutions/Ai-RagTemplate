@@ -1,5 +1,5 @@
 # RagCraft
-A CLI Template/Framework for create Ai  Command line Agents in C
+A CLI Template/Framework for creating AI Command line Agents in C
 
 ## About the Project
 This README was written by Grok with RagCraft, an AI model developed by xAI. RagCraft is a powerful tool for creating RAG (Retrieval-Augmented Generation) based applications in C. It provides a robust framework for managing language models, configuring APIs, and building CLI applications with ease.
@@ -12,8 +12,8 @@ This README was written by Grok with RagCraft, an AI model developed by xAI. Rag
 - **Encryption**: Secure storage of configuration files with encryption.
 
 
-## Testage Release
-Ragcraft itself release, can help you to understand the project, if you want acess [cli_usage.md](/docs/cli_usage.md) and learn how to use the template,by using the cli itself that it generates
+## Test Release
+Ragcraft itself release, can help you to understand the project, if you want access [cli_usage.md](/docs/cli_usage.md) and learn how to use the template, by using the CLI itself that it generates
 
 | File | Description |
 | --- | --- |
