@@ -17,6 +17,7 @@ char * colect_user_imput(){
       buffer[i] = '\0';
       break;
     }
+ 
     buffer[i] = c;
     i++;
   }
