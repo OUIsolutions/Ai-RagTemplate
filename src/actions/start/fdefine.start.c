@@ -58,7 +58,6 @@ int start_action(){
             }
             break;
         }
-
         openai.openai_interface.add_user_prompt(openAi, buffer);
 
         OpenAiResponse *response =  OpenAiInterface_make_question_finish_reason_treated(openAi);

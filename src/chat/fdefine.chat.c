@@ -27,6 +27,7 @@ short Reg_init_chat(char *buffer, size_t size_max_buffer, const char *initial_ca
       long temp_size = strlen(buffer_temp);
 
       if (temp_size > size_max) {
+        free(buffer_temp);
         return REG_CHAT_RESPONSE_BUFFER_BURST;
       }
 
@@ -46,9 +47,10 @@ short Reg_init_chat(char *buffer, size_t size_max_buffer, const char *initial_ca
       buffer[size_buffer - 1] = '\0';
       break;
     }
-
+    free(buffer_temp);
     return REG_CHAT_RESPONSE_INVALID_READ;
   }
+  free(buffer_temp);
 
   if(size_max <= 0){
     return REG_CHAT_RESPONSE_BUFFER_BURST;
