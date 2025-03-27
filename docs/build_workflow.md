@@ -1,6 +1,6 @@
 ### Build Workflow
 ### IMPORTANT:
-### For understand these part, read [build_instructions.md](assets/docs/build_instructions.md) and [build_toolchain.md](/assets/docs/build_toolchain.md) first
+### For understand these part, read [build_instructions.md](/docs/build_instructions.md) and [build_toolchain.md](/docs/build_toolchain.md) first
 
 ### [main.lua](/build/main.lua)
 - verify if its to test a container 
