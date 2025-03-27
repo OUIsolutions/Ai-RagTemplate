@@ -1,5 +1,5 @@
 # RagCraft
-A CLI Template/Framework for creating AI Command line Agents in C
+A CLI Template/Framework for creating AI Command line Agents in C/C++
 
 ![Tumb Image](/tumb/tumb.gif)
 
