@@ -5,26 +5,36 @@
 #include "../imports/imports.globals.h"
 //silver_chain_scope_end
 
-bool create_user_config_models_path(unsigned char *encryption_key){
-    #ifdef __linux__
-    const char *homedir = getenv("HOME");
-    #elif _WIN32
-    const char *homedir = getenv("USERPROFILE");
-    #endif
+bool create_user_config_models_path(unsigned char *encryption_key, const char *path_model){
 
-    if(homedir == NULL){
-        printf("%sError: No home directory found%s\n", RED, RESET);
-        return false;
+    const char *homedir = path_model;
+    const char *path_models_formated = NULL;
+    
+    if(!homedir){
+        #if defined(__linux__)
+            const char *home_director_absolut = getenv("HOME");
+            homedir = home_director_absolut?dtw.concat_path(home_director_absolut, ".config"):NULL;
+        #elif defined(_WIN32)
+            homedir = getenv("LOCALAPPDATA");
+        #endif
+
+        if(!homedir){
+            printf("%sError: No models directory found%s\n", RED, RESET);
+            return false;
+        }
+
+        path_models_formated = dtw.concat_path(homedir, NAME_CHAT);//Não precisa de verificação de retorno, pois em erro é um segment fault.
     }
+
+    dtw.create_dir_recursively(path_models_formated);
 
     DtwHash *hasher = dtw.hash.newHash();
     dtw.hash.digest_any(hasher, encryption_key, RagCraftkey_size);
     dtw.hash.digest_string(hasher,"iisjf8438u38uu91nnvffn");
 
-    config_path = dtw.concat_path(homedir,hasher->hash);
+    config_path = dtw.concat_path(path_models_formated,hasher->hash);
     dtw.hash.free(hasher);
     return true;
-
 }
 
 cJSON *create_model_obj(const char *model, const char *key, const char *url){
