@@ -63,6 +63,7 @@ than you can compile with gcc in the way you want:
 ```
 - multi_compilation:
 ```bash
+mkdir libs
 #these its required because doTheWorld already have cjson
 gcc -c dependencies/BearHttpsClient.c -o libs/BearHttpsClient.o  -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE
 gcc -c  dependencies/CArgvParse.c -o libs/CArgvParse.o
