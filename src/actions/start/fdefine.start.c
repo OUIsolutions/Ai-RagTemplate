@@ -33,6 +33,14 @@ int start_action(){
     OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(props->url, props->key, props->model);
     
     
+    Asset *sao_paulo_slangs = get_asset("sao_paulo_slangs.txt");
+    if(!sao_paulo_slangs){
+      printf("%sError: %s%s\n", RED, "No sao paulo slangs found", RESET);
+      return 1;
+    }
+    openai.openai_interface.add_system_prompt(openAi,(char*)sao_paulo_slangs->data);
+
+
     Asset * main_system_rules = get_asset("system_instructions.json");
     if(!main_system_rules){
       printf("%sError: %s%s\n", RED, "No system instructions found", RESET);
