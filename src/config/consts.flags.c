@@ -7,34 +7,41 @@
 
 const char *help_flags[] ={
     "help",
-    "h"
+    "H"
 };
 
 int help_size = 2;
 
 const char *model_lags[] ={
     "model",
-    "m"
+    "M"
 };
 int model_size = 2;
 
 const char *url_flags[] ={
     "url",
-    "u"
+    "U"
 };
 
 int url_size = 2;
 
 const char *key_flags[] ={
     "key",
-    "k"
+    "K"
 };
 
 int key_size = 2;
 
 const char *version_flags[] ={
     "version",
-    "v"
+    "V"
 };
 
 int version_size = 2;
+
+const char *path_config_flags[] = {
+    "path",
+    "P"
+};
+
+int path_config_size = 2;

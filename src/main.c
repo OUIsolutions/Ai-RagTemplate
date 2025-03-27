@@ -20,7 +20,8 @@ int main(int argc, char  *argv[]){
       return 1;
     }
 
-    bool configured = create_user_config_models_path(encryption_key);
+    const char *path_models = args.get_flag(&args_obj, path_config_flags, path_config_size, 0);
+    bool configured = create_user_config_models_path(encryption_key, path_models);
     if(!configured){
       release_if_not_null(encryption_key,free);
       release_if_not_null(config_path,free);
