@@ -1,3 +1,9 @@
+//silver_chain_scope_start
+//DONT MODIFY THIS COMMENT
+//this import is computationally generated
+//mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
+#include "../imports/imports.globals.h"
+//silver_chain_scope_end
 
 char *agent_get_ai_chosen_asset(cJSON *args, void *pointer){
   const char *model = (const char*)pointer;
@@ -100,7 +106,7 @@ char *agent_write_file(cJSON *args, void *pointer){
         return NULL;
     }
     dtw.write_string_file_content(path->valuestring, content->valuestring);
-    printf("%s %s WROTE: %s\n",YELLOW,model, path->valuestring, RESET);
+    printf("%s %s WRITE: %s\n",YELLOW,model, path->valuestring, RESET);
     return (char*)"file wrotted";
 }
 
