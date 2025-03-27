@@ -64,12 +64,11 @@ than you can compile with gcc in the way you want:
 - multi_compilation:
 ```bash
 #these its required because doTheWorld already have cjson
-gcc -c dependencies/BearHttpsClient.c -o BearHttpsClient.o  -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE
-gcc -c  dependencies/CArgvParse.c -o CArgvParse.o
-gcc -c dependencies/doTheWorld.c -o doTheWorld.o
-gcc src/main.c -o my_executable BearHttpsClient.o doTheWorld.o CArgvParse.o
+gcc -c dependencies/BearHttpsClient.c -o libs/BearHttpsClient.o  -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE
+gcc -c  dependencies/CArgvParse.c -o libs/CArgvParse.o
+gcc -c dependencies/doTheWorld.c -o libs/doTheWorld.o
+gcc src/main.c -o RagCraft libs/BearHttpsClient.o libs/doTheWorld.o libs/CArgvParse.o
 ```
-
 
 ### Testing Releases
 you can launch a container to test your releases with the following command:
