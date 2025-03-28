@@ -1,9 +1,3 @@
-//silver_chain_scope_start
-//DONT MODIFY THIS COMMENT
-//this import is computationally generated
-//mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
-#include "../imports/imports.globals.h"
-//silver_chain_scope_end
 
 bool create_user_config_models_path(unsigned char *encryption_key, const char *path_model){
 
@@ -29,7 +23,7 @@ bool create_user_config_models_path(unsigned char *encryption_key, const char *p
     dtw.create_dir_recursively(path_models_formated);
 
     DtwHash *hasher = dtw.hash.newHash();
-    dtw.hash.digest_any(hasher, encryption_key, RagCraftkey_size);
+    dtw.hash.digest_any(hasher, encryption_key, main_encryptkey_size);
     dtw.hash.digest_string(hasher,"iisjf8438u38uu91nnvffn");
 
     config_path = dtw.concat_path(path_models_formated,hasher->hash);

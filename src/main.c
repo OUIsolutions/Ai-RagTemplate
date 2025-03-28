@@ -1,17 +1,11 @@
-//silver_chain_scope_start
-//DONT MODIFY THIS COMMENT
-//this import is computationally generated
-//mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
-#include "imports/imports.fdefine.h"
-//silver_chain_scope_end
 
 
 int main(int argc, char  *argv[]){
     start_namespace();
     args_obj  = args.newCArgvParse(argc, argv);
     
-    unsigned char *encryption_key = (unsigned char*)malloc(RagCraftkey_size+1);
-    RagCraft_get_key(encryption_key);
+    unsigned char *encryption_key = (unsigned char*)malloc(main_encryptkey_size+1);
+    main_encrypt_get_key(encryption_key);
     encryption = dtw.encryption.newAES_Custom_CBC_v1_interface((char*)encryption_key);
     if(encryption == NULL){
       printf("%sError: %s%s\n", RED, "Invalid encryption key", RESET);

@@ -3,7 +3,7 @@ function create_encrypt_key(encrypt_key)
 
    local array_props ={
       {key =encrypt_key},
-      {name = PROJECT_NAME},
+      {name = "main_encrypt"},
       {seed = 232954},
       {debug = false},
       {fake_byte_set = 0}, 
